@@ -32,7 +32,7 @@ class UniversityService:
         )
 
     def get_by_id(self, db: Session, id: int) -> Optional[models.University]:
-        return db.query(models.University).filter(models.University.id == id).first()
+        return db.query(models.University).filter(models.University.universityID == id).first()
 
     def update(
         self, db: Session, id: int, item_update: schemas.UniversityUpdate

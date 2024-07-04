@@ -42,7 +42,7 @@ class ProfessorService:
         )
 
     def get_by_id(self, db: Session, id: int) -> Optional[models.Professor]:
-        return db.query(models.Professor).filter(models.Professor.ProfessorID == id).first()
+        return db.query(models.Professor).filter(models.Professor.professorID == id).first()
 
     def update(
         self, db: Session, id: int, item_update: schemas.ProfessorUpdate) -> models.Professor:
