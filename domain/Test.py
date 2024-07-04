@@ -1,1 +1,1 @@
-print(www)
+print("123456")
