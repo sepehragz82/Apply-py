@@ -1,18 +1,15 @@
 
 from pydantic import BaseModel
 
-class research_interestCreate(BaseModel):
-    ResearchInterestID: int
+class ResearchInterestCreate(BaseModel):
     ResearchInterestName: str
     Description: str
 
-class research_interestUpdate(BaseModel):
+class ResearchInterestUpdate(BaseModel):
     ResearchInterestName: str
     Description: str
 
-
-
-class research_interest(BaseModel):
+class ResearchInterest(BaseModel):
     ResearchInterestID: int
     ResearchInterestName: str
     Description: str

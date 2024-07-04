@@ -1,16 +1,12 @@
 from pydantic import BaseModel
 
-class fundCreate(BaseModel):
-    FundID: int
+class FundCreate(BaseModel):
+    FundType: str
+    
+class FundUpdate(BaseModel):
     FundType: str
 
-
-class fundUpdate(BaseModel):
-    FundType: str
-
-
-
-class fund(BaseModel):
+class Fund(BaseModel):
     FundID: int
     FundType: str
 

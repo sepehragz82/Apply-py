@@ -2,24 +2,21 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-class UniversityTypeCreate(BaseModel):
-    UniversityID: int
+class UniversityCreate(BaseModel):
     UniversityName: str
     CityID: int
     InternationalsAsTA: bool
     FallDeadline: datetime
     WinterDeadline: datetime
 
-class position_typeUpdate(BaseModel):
-    UniversityID: int
+class UniversityUpdate(BaseModel):
     UniversityName: str
     CityID: int
     InternationalsAsTA: bool
     FallDeadline: datetime
     WinterDeadline: datetime
 
-
-class position_type(BaseModel):
+class University(BaseModel):
     UniversityID: int
     UniversityName: str
     CityID: int
