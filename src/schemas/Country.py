@@ -10,7 +10,6 @@ class countryUpdate(BaseModel):
     CountryName: str
 
 
-
 class country(BaseModel):
     CountryID: int
     CountryName: str
