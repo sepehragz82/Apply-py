@@ -7,7 +7,7 @@ from src import models, schemas
 
 class PositionService:
     def create(self, db: Session, Position: schemas.PositionCreate) -> models.Position:
-        db_item = models.Country(
+        db_item = models.Position(
             positionOn = Position.positionOn,
             positionYear = Position.positionYear,
             professorID = Position.professorID,
