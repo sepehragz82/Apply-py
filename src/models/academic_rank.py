@@ -3,8 +3,8 @@ from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, T
 from src.database.session import Base
 
 
-class academic_rank(Base):
+class AcademicRank(Base):
     __tablename__ = "academic_rank"
 
-    AcademicRankID = Column(Integer, primary_key=True)
-    AcademicRankTitle = Column(String)
+    academicRankID = Column(Integer, primary_key=True)
+    academicRankTitle = Column(String)
