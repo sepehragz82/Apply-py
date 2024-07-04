@@ -1,15 +1,15 @@
 from pydantic import BaseModel
 
 
-class academic_rankCreate(BaseModel):
+class AcademicRankCreate(BaseModel):
     academicRankTitle: str
 
 
-class academic_rankUpdate(BaseModel):
+class AcademicRankUpdate(BaseModel):
     academicRankTitle: str
 
 
-class academic_rank(BaseModel):
+class AcademicRank(BaseModel):
     academicRankID: int
     academicRankTitle: str
 

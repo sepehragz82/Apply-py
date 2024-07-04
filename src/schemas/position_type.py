@@ -1,15 +1,15 @@
 from pydantic import BaseModel
 
 
-class position_typeCreate(BaseModel):
+class PositionTypeCreate(BaseModel):
     positionType: str
 
 
-class position_typeUpdate(BaseModel):
+class PositionTypeUpdate(BaseModel):
     positionType: str
 
 
-class position_type(BaseModel):
+class PositionType(BaseModel):
     positionTypeID: int
     positionType: str
 

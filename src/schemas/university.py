@@ -3,7 +3,7 @@ from datetime import datetime
 from pydantic import BaseModel
 
 
-class universityCreate(BaseModel):
+class UniversityCreate(BaseModel):
     universityName: str
     cityID: int
     internationalsAsTA: bool
@@ -11,7 +11,7 @@ class universityCreate(BaseModel):
     winterDeadline: datetime
 
 
-class universityUpdate(BaseModel):
+class UniversityUpdate(BaseModel):
     universityName: str
     cityID: int
     internationalsAsTA: bool
@@ -19,7 +19,7 @@ class universityUpdate(BaseModel):
     winterDeadline: datetime
 
 
-class university(BaseModel):
+class University(BaseModel):
     universityID: int
     universityName: str
     cityID: int

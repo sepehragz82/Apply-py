@@ -1,17 +1,17 @@
 from pydantic import BaseModel
 
 
-class cityCreate(BaseModel):
+class CityCreate(BaseModel):
     cityName: str
     countryID: int
 
 
-class cityUpdate(BaseModel):
+class CityUpdate(BaseModel):
     cityName: str
     countryID: int
 
 
-class city(BaseModel):
+class City(BaseModel):
     cityID: int
     cityName: str
     countryID: int
