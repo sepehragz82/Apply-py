@@ -19,7 +19,7 @@ class AcademicRank:
     def update(
         self, db: Session, id: str, academic_rank: schemas.AcademicRankUpdate
     ) -> models.AcademicRank:
-        db_academic_rank = self.get_by_id(db, username=id)
+        db_academic_rank = self.get_by_id(db, id)
 
         update_data = academic_rank.dict(exclude_unset=True)
         update_data["modified_at"] = func.now()
@@ -31,8 +31,8 @@ class AcademicRank:
         db.refresh(db_academic_rank)
         return db_academic_rank
 
-    def delete(self, db: Session, username: str):
-        db_academic_rank = self.get_by_id(db, username=username)
+    def delete(self, db: Session, id: int):
+        db_academic_rank = self.get_by_id(db, id)
         db.delete(db_academic_rank)
         db.commit()
 
