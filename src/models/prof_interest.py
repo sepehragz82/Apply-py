@@ -4,12 +4,12 @@ from sqlalchemy.orm import relationship
 from src.database.session import Base
 
 
-class prof_interest(Base):
+class ProfInterest(Base):
     __tablename__ = "prof_interest"
 
-    ProfResearchInterestID = Column(Integer, primary_key=True)
+    profResearchInterestID = Column(Integer, primary_key=True)
 
-    ProfessorID = relationship("prof_interest", back_populates="professor")
-    ResearchInterestID = relationship(
+    professorID = relationship("prof_interest", back_populates="professor")
+    researchInterestID = relationship(
         "prof_interest", back_populates="research_interest"
     )
