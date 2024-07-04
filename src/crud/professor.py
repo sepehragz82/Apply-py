@@ -6,28 +6,8 @@ from src import models, schemas
 
 
 class ProfessorService:
-    def create(
-        self, db: Session, professor: schemas.ProfessorCreate
-    ) -> models.Professor:
+    def create(self, db: Session, Professor: schemas.ProfessorCreate) -> models.Professor:
         db_item = models.Professor(
-<<<<<<< Updated upstream
-            professorFName=professor.professorFName,
-            professorMName=professor.professorMName,
-            professorLName=professor.professorLName,
-            profGender=professor.profGender,
-            profCodeinUni=professor.profCodeinUni,
-            universityID=professor.universityID,
-            departmentID=professor.departmentID,
-            email=professor.email,
-            linkedIN=professor.linkedIN,
-            googleScholar=professor.googleScholar,
-            h_Index=professor.h_Index,
-            profileUniSite=professor.profileUniSite,
-            educationDescription=professor.educationDescription,
-            extraDescription=professor.extraDescription,
-            academicRankID=professor.academicRankID,
-=======
-            professorID = Professor.professorID,
             professorFName = Professor.professorFName,
             professorMName = Professor.professorMName,
             professorLName = Professor.professorLName,
@@ -36,14 +16,13 @@ class ProfessorService:
             universityID = Professor.universityID,
             departmentID = Professor.departmentID,
             email = Professor.email,
-            linkedIN = Professor.linkedIN,
+            linkedIN=Professor.linkedIN,
             googleScholar = Professor.googleScholar,
             h_Index = Professor.h_Index,
             profileUniSite = Professor.profileUniSite,
             educationDescription = Professor.educationDescription,
             extraDescription = Professor.extraDescription,
             academicRankID = Professor.academicRankID
->>>>>>> Stashed changes
         )
         db.add(db_item)
         db.commit()
