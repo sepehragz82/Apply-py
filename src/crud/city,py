@@ -5,8 +5,8 @@ from src import models, schemas
 from src.core.security import get_password_hash, verify_password
 
 
-class City:
-    def create(self, db: Session, city: schemas.CityCreate) -> models.User:
+class CityService:
+    def create(self, db: Session, city: schemas.CityCreate) -> models.City:
         db_city = models.City(
             cityName=city.cityName,
         )
@@ -55,4 +55,4 @@ class City:
     def get_city_by_cityName(self, db: Session, cityName: str) -> models.User | None:
         return db.query(models.City).filter(models.City.cityName == cityName).first()
 
-coty = City()
+CityService = CityService()

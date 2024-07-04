@@ -6,7 +6,7 @@ from src import models, schemas
 
 
 class CountryService:
-    def create(self, db: Session, Country: schemas.CountryCreate) -> models.Country:
+    def create(self, db: Session, country: schemas.CountryCreate) -> models.Country:
         db_item = models.Country(
             countryID = country.countryID,
             countryName = country.countryName
@@ -37,7 +37,7 @@ class CountryService:
 
         update_data = Item_update.dict(exclude_unset=True)
 
-        for field, value in update_data.Country():
+        for field, value in update_data.items():
             setattr(db_item, field, value)
 
         db.commit()

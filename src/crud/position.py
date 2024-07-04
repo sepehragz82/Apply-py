@@ -41,7 +41,7 @@ class PositionService:
 
         update_data = Item_update.dict(exclude_unset=True)
 
-        for field, value in update_data.Position():
+        for field, value in update_data.items():
             setattr(db_item, field, value)
 
         db.commit()

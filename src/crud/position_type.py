@@ -8,7 +8,7 @@ from src import models, schemas
 class PositionTypeService:
     def create(self, db: Session, Position: schemas.PositionCreate) -> models.PositionType:
         db_item = models.PositionType(
-            positionType = PositionType.positionType
+            positionType = Position.positionType
         )
         db.add(db_item)
         db.commit()
@@ -36,7 +36,7 @@ class PositionTypeService:
 
         update_data = Item_update.dict(exclude_unset=True)
 
-        for field, value in update_data.PositionType():
+        for field, value in update_data.items():
             setattr(db_item, field, value)
 
         db.commit()
