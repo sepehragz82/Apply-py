@@ -25,7 +25,7 @@ class UniversityService:
     ) -> List[models.University]:
         return (
             db.query(models.University)
-            .order_by(models.University.id.desc())
+            .order_by(models.University.universityID.desc())
             .offset(skip)
             .limit(limit)
             .all()
