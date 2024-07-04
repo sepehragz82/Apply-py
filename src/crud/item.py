@@ -5,8 +5,8 @@ from sqlalchemy.orm import Session
 from src import models, schemas
 
 
-class ItemService(object):
-    def create(self, db: Session, item: schemas.Item) -> models.Item:
+class ItemService:
+    def create(self, db: Session, item: schemas.ItemCreate) -> models.Item:
         db_item = models.Item(
             name=item.name,
             price=item.price,
