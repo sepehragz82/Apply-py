@@ -8,7 +8,9 @@ from src import models, schemas
 class ProfInterestService:
     def create(self, db: Session, ProfInterest: schemas.ProfInterestCreate) -> models.ProfInterest:
         db_item = models.ProfInterest(
-            profInterest = ProfInterest.
+            profInterest = ProfInterest.profInterest,
+            professorID = ProfInterest.professorID,
+            researchInterestID = ProfInterest.researchInterestID
         )
         db.add(db_item)
         db.commit()
@@ -17,37 +19,37 @@ class ProfInterestService:
 
     def get_all(
         self, db: Session, skip: int = 0, limit: int = 100
-    ) -> List[models.Country]:
+    ) -> List[models.ProfInterest]:
         return (
-            db.query(models.Country)
-            .order_by(models.Country.countryID())
+            db.query(models.ProfInterest)
+            .order_by(models.ProfInterest.profInterestID())
             .offset(skip)
             .limit(limit)
             .all()
         )
 
-    def get_by_id(self, db: Session, id: int) -> Optional[models.Country]:
-        return db.query(models.Country).filter(models.Country.countryID == id).first()
+    def get_by_id(self, db: Session, id: int) -> Optional[models.ProfInterest]:
+        return db.query(models.ProfInterest).filter(models.ProfInterest.profInterestID == id).first()
 
     def update(
-        self, db: Session, id: int, Item_update: schemas.CountryUpdate
+        self, db: Session, id: int, Item_update: schemas.ProfInterestUpdate
     ) -> models.Country:
         db_item = self.get_by_id(db, id=id)
 
         update_data = Item_update.dict(exclude_unset=True)
 
-        for field, value in update_data.Country():
+        for field, value in update_data.ProfInterest():
             setattr(db_item, field, value)
 
         db.commit()
         db.refresh(db_item)
         return db_item
 
-    def delete(self, db: Session, id: int) -> models.Country:
+    def delete(self, db: Session, id: int) -> models.ProfInterest:
         db_item = self.get_by_id(db, id=id)
         db.delete(db_item)
         db.commit()
         return db_item
 
 
-countryService = CountryService
+profInterestService = ProfInterestService
