@@ -3,8 +3,8 @@ from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, T
 from src.database.session import Base
 
 
-class department(Base):
+class Department(Base):
     __tablename__ = "department"
 
-    DepartmentID = Column(Integer, primary_key=True)
-    DepartmentName = Column(String)
+    departmentID = Column(Integer, primary_key=True)
+    departmentName = Column(String)
