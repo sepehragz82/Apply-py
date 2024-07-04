@@ -6,23 +6,25 @@ from src import models, schemas
 
 
 class ProfessorService:
-    def create(self, db: Session, Professor: schemas.ProfessorCreate) -> models.Professor:
+    def create(
+        self, db: Session, Professor: schemas.ProfessorCreate
+    ) -> models.Professor:
         db_item = models.Professor(
-            professorFName = Professor.professorFName,
-            professorMName = Professor.professorMName,
-            professorLName = Professor.professorLName,
-            profGender = Professor.profGender,
-            profCodeinUni = Professor.profCodeinUni,
-            universityID = Professor.universityID,
-            departmentID = Professor.departmentID,
-            email = Professor.email,
-            linkedIN=Professor.linkedIN,
-            googleScholar = Professor.googleScholar,
-            h_Index = Professor.h_Index,
-            profileUniSite = Professor.profileUniSite,
-            educationDescription = Professor.educationDescription,
-            extraDescription = Professor.extraDescription,
-            academicRankID = Professor.academicRankID
+            professorFName=Professor.professor_f_name,
+            professorMName=Professor.professor_m_name,
+            professorLName=Professor.professor_l_name,
+            profGender=Professor.prof_gender,
+            profCodeinUni=Professor.prof_code_in_uni,
+            universityID=Professor.university_id,
+            departmentID=Professor.department_id,
+            email=Professor.email,
+            linkedIN=Professor.linkedin,
+            googleScholar=Professor.google_scholar,
+            h_Index=Professor.h_index,
+            profileUniSite=Professor.profile_uni_site,
+            educationDescription=Professor.education_description,
+            extraDescription=Professor.extra_description,
+            academicRankID=Professor.academic_rank_id,
         )
         db.add(db_item)
         db.commit()

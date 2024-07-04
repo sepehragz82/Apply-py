@@ -1,58 +1,31 @@
-from typing import Union
-
 from pydantic import BaseModel
 
 
-class ProfessorCreate(BaseModel):
-    professorFName: str
-    professorMName: Union[str, None] = None
-    professorLName: str
-    profGender: Union[bool, None] = None
-    profCodeinUni: Union[int, None] = None
-    universityID: int
-    departmentID: int
+class BaseProfessor(BaseModel):
+    professor_f_name: str
+    professor_m_name: str | None = None
+    professor_l_name: str
+    prof_gender: bool | None = None
+    prof_code_in_uni: int | None = None
+    university_id: int
+    department_id: int
     email: str
-    linkedIN: Union[str, None] = None
-    googleScholar: Union[str, None] = None
-    h_Index: float
-    profileUniSite: Union[str, None] = None
-    educationDescription: Union[str, None] = None
-    extraDescription: Union[str, None] = None
-    academicRankID: int
+    linkedin: str | None = None
+    google_scholar: str | None = None
+    h_index: float
+    profile_uni_site: str | None = None
+    education_description: str | None = None
+    extra_description: str | None = None
+    academic_rank_id: int
 
 
-class ProfessorUpdate(BaseModel):
-    professorFName: str
-    professorMName: Union[str, None] = None
-    professorLName: str
-    profGender: Union[bool, None] = None
-    profCodeinUni: Union[int, None] = None
-    universityID: int
-    departmentID: int
-    email: str
-    linkedIN: Union[str, None] = None
-    googleScholar: Union[str, None] = None
-    h_Index: float
-    profileUniSite: Union[str, None] = None
-    educationDescription: Union[str, None] = None
-    extraDescription: Union[str, None] = None
-    academicRankID: int
+class ProfessorCreate(BaseProfessor):
+    pass
 
 
-class Professor(BaseModel):
-    professorID: int
-    professorFName: str
-    professorMName: Union[str, None] = None
-    professorLName: str
-    profGender: Union[bool, None] = None
-    profCodeinUni: Union[int, None] = None
-    universityID: int
-    departmentID: int
-    email: str
-    linkedIN: Union[str, None] = None
-    googleScholar: Union[str, None] = None
-    h_Index: float
-    profileUniSite: Union[str, None] = None
-    educationDescription: Union[str, None] = None
-    extraDescription: Union[str, None] = None
-    academicRankID: int
+class ProfessorUpdate(BaseProfessor):
+    pass
+
+
+class Professor(BaseProfessor):
+    professor_id: int
