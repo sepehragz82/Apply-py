@@ -12,6 +12,7 @@ python-multipart = "*"
 sqlalchemy = "*"
 alembic = "*"
 psycopg2 = "*"
+pydantic-settings = "*"
 
 [dev-packages]
 autopep8 = "*"

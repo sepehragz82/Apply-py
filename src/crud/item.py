@@ -6,9 +6,6 @@ from src import models, schemas
 
 
 class ItemService(object):
-    def __init__(self):
-        pass
-
     def create(self, db: Session, item: schemas.Item) -> models.Item:
         db_item = models.Item(
             name=item.name,
@@ -25,7 +22,6 @@ class ItemService(object):
         return (
             db.query(models.Item)
             .order_by(models.Item.id.desc())
-            .filter(models.Item.public == True)
             .offset(skip)
             .limit(limit)
             .all()
@@ -37,19 +33,22 @@ class ItemService(object):
     def update(
         self, db: Session, id: int, item_update: schemas.ItemUpdate
     ) -> models.Item:
-        db_note = self.get_by_id(db, id=id)
+        db_item = self.get_by_id(db, id=id)
 
         update_data = item_update.dict(exclude_unset=True)
 
         for field, value in update_data.items():
-            setattr(db_note, field, value)
+            setattr(db_item, field, value)
 
         db.commit()
-        db.refresh(db_note)
-        return db_note
+        db.refresh(db_item)
+        return db_item
 
-    def delete(self, db: Session, id: int) -> models.Note:
-        db_note = self.get_by_id(db, id=id)
-        db.delete(db_note)
+    def delete(self, db: Session, id: int) -> models.Item:
+        db_item = self.get_by_id(db, id=id)
+        db.delete(db_item)
         db.commit()
-        return db_note
+        return db_item
+
+
+itemService = ItemService

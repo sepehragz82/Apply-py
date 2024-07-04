@@ -18,7 +18,6 @@ def get_current_user(
 def get_all_users(
     skip: int = 0,
     limit: int = 100,
-    super_user: models.User = Depends(deps.get_current_active_superuser),
     db: Session = Depends(deps.get_db),
 ):
     return crud.user.get_all_users(db, skip=skip, limit=limit)
@@ -27,7 +26,6 @@ def get_all_users(
 @router.get("/{username}", response_model=schemas.User)
 def get_user_by_username(
     username: str,
-    super_user: models.User = Depends(deps.get_current_active_superuser),
     db: Session = Depends(deps.get_db),
 ):
     db_user = crud.user.get_user_by_username(db, username=username)
@@ -40,7 +38,6 @@ def get_user_by_username(
 
 @router.get("/count/", response_model=int)
 def get_all_users_count(
-    super_user: models.User = Depends(deps.get_current_active_superuser),
     db: Session = Depends(deps.get_db),
 ):
     return crud.user.get_all_users_count(db)
@@ -69,7 +66,6 @@ def update_user(
 @router.delete("/{username}")
 def delete_user(
     username: str,
-    super_user: models.User = Depends(deps.get_current_active_superuser),
     db: Session = Depends(deps.get_db),
 ):
     db_user = crud.user.get_user_by_username(db, username=username)

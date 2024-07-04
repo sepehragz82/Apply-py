@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "6c8a2458cf816534171f78bdde75f85e039a6b8252e3772d7722cf4d71f13176"
+            "sha256": "edee996c07fefa6334eb6696cfc8b659705f190d99daf4786be18fe6227af181"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -673,6 +673,15 @@
             "markers": "python_version >= '3.8'",
             "version": "==2.20.1"
         },
+        "pydantic-settings": {
+            "hashes": [
+                "sha256:11ad8bacb68a045f00e4f862c7a718c8a9ec766aa8fd4c32e39a0594b207b53a",
+                "sha256:c5802e3d62b78e82522319bbc9b8f8ffb28ad1c988a99311d04f2a6051fca0a7"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.8'",
+            "version": "==2.3.4"
+        },
         "pygments": {
             "hashes": [
                 "sha256:786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199",
@@ -686,6 +695,7 @@
                 "sha256:e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca",
                 "sha256:f7b63ef50f1b690dddf550d03497b66d609393b40b564ed0d674909a68ebf16a"
             ],
+            "markers": "python_version >= '3.8'",
             "version": "==1.0.1"
         },
         "python-jose": {
