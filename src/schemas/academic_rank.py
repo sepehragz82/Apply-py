@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel
 
 class academic_rankCreate(BaseModel):
@@ -10,3 +9,6 @@ class academic_rankUpdate(BaseModel):
 class academic_rank(BaseModel):
     AcademicRankID: int
     AcademicRankTitle: str
+
+class Config:
+    orm_mode = True

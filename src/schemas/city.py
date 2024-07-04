@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel
 
 class cityCreate(BaseModel):
@@ -14,3 +13,6 @@ class city(BaseModel):
     CityID: int
     CityName: str
     CountryID: int
+
+class Config:
+    orm_mode = True

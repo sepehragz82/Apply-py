@@ -7,7 +7,6 @@ class prof_interest(Base):
     __tablename__ = "prof_interest"
 
     ProfResearchInterestID = Column(Integer, primary_key=True, index=True)
-    ProfessorID = Column(ForeignKey, index=True)
-    ResearchInterestID = Column(ForeignKey, index=True)
-
-    author_id = relationship("User", back_populates="notes")
+    
+    ProfessorID = relationship("prof_interest", back_populates="professor")
+    ResearchInterestID = relationship("prof_interest", back_populates="research_interest")

@@ -10,3 +10,5 @@ class position_type(BaseModel):
     PositionTypeID: int
     PositionType: str
 
+class Config:
+    orm_mode = True

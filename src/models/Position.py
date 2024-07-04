@@ -7,10 +7,10 @@ class position(Base):
     __tablename__ = "position"
 
     PositionID = Column(Integer, primary_key=True, index=True)
-    FundID = Column(ForeignKey, index=True)
     PossisionOn = Column(Boolean, index=True)
-    DepartmentID = Column(ForeignKey, index=True)
-    PositionTypeID = Column(ForeignKey, index=True)
     PositionYear = Column(Integer, index=True)
 
-    author_id = relationship("User", back_populates="notes")
+    ProfessorID = relationship("position", back_populates="professor")
+    FundID = relationship("position", back_populates="fund")
+    PositionTypeID = relationship("position", back_populates="position_type")
+    DepartmentID = relationship("position", back_populates="department")

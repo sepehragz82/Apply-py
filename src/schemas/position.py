@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 class positionCreate(BaseModel):
     FundID: int
-    PossisionOn: bool
+    PosisionOn: bool
     ProfessorID: int
     DepartmentID: int
     PositionTypeID: int

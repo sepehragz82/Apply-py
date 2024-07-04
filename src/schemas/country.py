@@ -1,4 +1,3 @@
-
 from pydantic import BaseModel
 
 class countryCreate(BaseModel):
@@ -10,3 +9,6 @@ class countryUpdate(BaseModel):
 class country(BaseModel):
     CountryID: int
     CountryName: str
+
+class Config:
+    orm_mode = True

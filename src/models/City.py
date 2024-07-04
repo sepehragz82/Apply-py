@@ -8,6 +8,5 @@ class city(Base):
 
     CityID = Column(Integer, primary_key=True, index=True)
     CityName = Column(String, index=True)
-    CountryID = Column(ForeignKey, index=True)
 
-    author_id = relationship("User", back_populates="notes")
+    CountryID = relationship("city", back_populates="country")
