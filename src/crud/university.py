@@ -8,12 +8,12 @@ from src import models, schemas
 class UniversityService:
     def create(self, db: Session, University: schemas.UniversityCreate) -> models.University:
         db_item = models.University(
-            UniversityID = University.UniversityID,
-            UniversityName = University.UniversityName,
-            CityID = University.CityID,
-            InternationalsAsTA = University.InternationalsAsTA,
-            FallDeadline = University.FallDeadline,
-            WinterDeadline = University.WinterDeadline
+            universityID = University.universityID,
+            universityName = University.universityName,
+            cityID = University.cityID,
+            internationalsAsTA = University.internationalsAsTA,
+            fallDeadline = University.fallDeadline,
+            winterDeadline = University.winterDeadline
         )
         db.add(db_item)
         db.commit()
@@ -55,4 +55,4 @@ class UniversityService:
         return db_item
 
 
-itemService = ItemService
+UniversityService = UniversityService
