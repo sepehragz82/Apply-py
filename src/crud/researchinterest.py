@@ -6,11 +6,13 @@ from src import models, schemas
 
 
 class ResearchInterestService:
-    def create(self, db: Session, ResearchInterest: schemas.ResearchInterestCreate) -> models.ResearchInterest:
+    def create(
+        self, db: Session, ResearchInterest: schemas.ResearchInterestCreate
+    ) -> models.ResearchInterest:
         db_item = models.ResearchInterest(
-            researchInterestID = ResearchInterest.researchInterestID,
-            researchInterestName = ResearchInterest.researchInterestName,
-            description = ResearchInterest.description
+            researchInterestID=ResearchInterest.researchInterestID,
+            researchInterestName=ResearchInterest.research_interest_name,
+            description=ResearchInterest.description,
         )
         db.add(db_item)
         db.commit()
@@ -29,7 +31,11 @@ class ResearchInterestService:
         )
 
     def get_by_id(self, db: Session, id: int) -> Optional[models.ResearchInterest]:
-        return db.query(models.ResearchInterest).filter(models.ResearchInterest.researchInterestID == id).first()
+        return (
+            db.query(models.ResearchInterest)
+            .filter(models.ResearchInterest.researchInterestID == id)
+            .first()
+        )
 
     def update(
         self, db: Session, id: int, Item_update: schemas.ResearchInterestUpdate
