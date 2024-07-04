@@ -8,7 +8,7 @@ from src import models, schemas
 class ItemService:
     def create(self, db: Session, University: schemas.UniversityCreate) -> models.University:
         db_item = models.University(
-            UniversityID = UNiversity.UniversityID,
+            UniversityID = University.UniversityID,
             UniversityName = University.UniversityName,
             CityID = University.CityID,
             InternationalsAsTA = University.InternationalsAsTA,

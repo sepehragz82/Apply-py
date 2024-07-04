@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship
 from src.database.session import Base
 
 class Professor(Base):
-    __tablename__ = "items"
+    __tablename__ = "professor"
 
     ProfessorID = Column(Integer, primary_key=True, index=True)
     ProfessorFName = Column(String);
