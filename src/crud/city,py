@@ -18,7 +18,7 @@ class City:
     def update(
         self, db: Session, cityName: str, city_update: schemas.CityUpdate
     ) -> models.City:
-        db_city = self.get_user_by_cityName(db, username=cityName)
+        db_city = self.get_city_by_cityName(db, cityName=cityName)
 
         update_data = city_update.dict(exclude_unset=True)
         update_data["modified_at"] = func.now()
@@ -31,7 +31,7 @@ class City:
         return db_city
 
     def delete(self, db: Session, cityName: str):
-        db_city = self.get_user_by_username(db, cityName=cityName)
+        db_city = self.get_city_by_cityName(db, cityName=cityName)
         db.delete(db_city)
         db.commit()
 
@@ -49,10 +49,10 @@ class City:
             .all()
         )
 
-    def get_user_by_id(self, db: Session, id: int) -> models.City | None:
+    def get_city_by_cityID(self, db: Session, id: int) -> models.City | None:
         return db.query(models.City).filter(models.City.cityID == id).first()
 
-    def get_user_by_username(self, db: Session, cityName: str) -> models.User | None:
+    def get_city_by_cityName(self, db: Session, cityName: str) -> models.User | None:
         return db.query(models.City).filter(models.City.cityName == cityName).first()
 
 coty = City()
