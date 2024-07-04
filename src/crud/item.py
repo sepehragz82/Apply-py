@@ -6,7 +6,7 @@ from src import models, schemas
 
 
 class ItemService:
-    def create(self, db: Session, item: schemas.itemCreate) -> models.Item:
+    def create(self, db: Session, item: schemas.ItemCreate) -> models.Item:
         db_item = models.item(
             name=item.name,
             price=item.price,

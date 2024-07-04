@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text
+from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
 
 from src.database.session import Base
@@ -11,18 +11,18 @@ class Professor(Base):
     professorFName = Column(String)
     professorMName = Column(String)
     professorLName = Column(String)
-    profGender = Column(bool)
-    profCodeinUni = Column(int)
-    universityID = Column(int)
-    departmentID = Column(int)
+    profGender = Column(Boolean)
+    profCodeinUni = Column(Integer)
+    universityID = Column(Integer)
+    departmentID = Column(Integer)
     email = Column(String)
     linkedIN = Column(String)
     googleScholar = Column(String)
-    h_Index = Column(float)
-    profileUniSite = Column(int)
+    h_Index = Column(Float)
+    profileUniSite = Column(Integer)
     educationDescription = Column(String)
     extraDescription = Column(String)
-    academicRankID = Column(int)
+    academicRankID = Column(Integer)
 
     universityID = relationship("professor", back_populates="university")
     departmentID = relationship("professor", back_populates="department")
