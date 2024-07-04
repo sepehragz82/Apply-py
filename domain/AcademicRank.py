@@ -1,4 +1,4 @@
 class AcademicRank:
-    def __init__(self, AcademicRankID, AcademicRankName):
+    def __init__(self, AcademicRankID, AcademicRankTitle):
         self.AcademicRankID = AcademicRankID
-        self.AcademicRankName = AcademicRankName
+        self.AcademicRankTitle = AcademicRankTitle

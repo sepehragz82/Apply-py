@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from src import models, schemas
 
 
-class ItemManager(object):
+class ItemService(object):
     def __init__(self):
         pass
 
