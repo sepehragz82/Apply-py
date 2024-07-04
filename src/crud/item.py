@@ -9,10 +9,10 @@ class ItemManager(object):
     def __init__(self):
         pass
 
-    def create(self, db: Session, user: schemas.Item) -> models.Item:
+    def create(self, db: Session, item: schemas.Item) -> models.Item:
         db_item = models.Item(
-            name=user.name,
-            price=user.price,
+            name=item.name,
+            price=item.price,
         )
         db.add(db_item)
         db.commit()
@@ -48,7 +48,7 @@ class ItemManager(object):
         db.refresh(db_note)
         return db_note
 
-    def remove(self, db: Session, id: int) -> models.Note:
+    def delete(self, db: Session, id: int) -> models.Note:
         db_note = self.get_by_id(db, id=id)
         db.delete(db_note)
         db.commit()
