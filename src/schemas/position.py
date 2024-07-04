@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 class PositionCreate(BaseModel):
     fundID: int
-    posisionOn: bool
+    positionOn: bool
     professorID: int
     departmentID: int
     positionTypeID: int
@@ -12,7 +12,7 @@ class PositionCreate(BaseModel):
 
 class PositionUpdate(BaseModel):
     fundID: int
-    possisionOn: bool
+    positionOn: bool
     professorID: int
     departmentID: int
     positionTypeID: int
@@ -22,7 +22,7 @@ class PositionUpdate(BaseModel):
 class Position(BaseModel):
     positionID: int
     fundID: int
-    possisionOn: bool
+    positionOn: bool
     professorID: int
     departmentID: int
     positionTypeID: int

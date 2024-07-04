@@ -8,10 +8,10 @@ from src.database.session import Base
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, unique=True, index=True)
+    id = Column(Integer, primary_key=True)
+    username = Column(String, unique=True)
     hashed_password = Column(String)
-    name = Column(String, index=True, nullable=True)
+    name = Column(String, nullable=True)
 
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     modified_at = Column(DateTime(timezone=True), server_default=func.now())
