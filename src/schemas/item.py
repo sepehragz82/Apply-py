@@ -9,19 +9,20 @@ class Item(BaseModel):
     is_offer: Union[bool, None] = None
 
 class Professor(BaseModel):
-    ProfessorID = ProfessorID
-    ProfessorFName = ProfessorFName
-    ProfessorMName = ProfessorMName
-    ProfessorLName = ProfessorLName
-    ProfGender = ProfGender
-    ProfCodeinUni = ProfCodeinUni
-    UniversityID = UniversityID
-    DepartmentID = DepartmentID
-    Email = Email
-    inkedIN =LinkedIN
-    GoogleScholar = GoogleScholar
-    H_Index = H_Index
-    ProfileUniSite = ProfileUniSite
-    EducationDescription = EducationDescription
-    ExtraDescription = ExtraDescription
+    ProfessorID: int
+    ProfessorFName: str
+    ProfessorMName: Union[str, None] = None
+    ProfessorLName: str
+    ProfGender: Union[bool, None] = None
+    ProfCodeinUni: Union[int, None] = None
+    UniversityID: int
+    DepartmentID: int
+    Email: str
+    LinkedIN: Union[str, None] = None
+    GoogleScholar: Union[str, None] = None
+    H_Index: float
+    ProfileUniSite: Union[str, None] = None
+    EducationDescription: Union[str, None] = None
+    ExtraDescription: Union[str, None] = None
+    AcademicRankID: int
     
