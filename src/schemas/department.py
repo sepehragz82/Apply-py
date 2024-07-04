@@ -1,11 +1,14 @@
 from pydantic import BaseModel
 
+
 class departmentCreate(BaseModel):
-    DepartmentName: str
+    departmentName: str
+
 
 class departmentUpdate(BaseModel):
-    DepartmentName: str
-    
+    departmentName: str
+
+
 class department(BaseModel):
-    DepartmentID: int
-    DepartmentName: str
+    departmentID: int
+    departmentName: str

@@ -4,54 +4,55 @@ from pydantic import BaseModel
 
 
 class professorCreate(BaseModel):
-    ProfessorFName: str
-    ProfessorMName: Union[str, None] = None
-    ProfessorLName: str
-    ProfGender: Union[bool, None] = None
-    ProfCodeinUni: Union[int, None] = None
-    UniversityID: int
-    DepartmentID: int
-    Email: str
-    LinkedIN: Union[str, None] = None
-    GoogleScholar: Union[str, None] = None
-    H_Index: float
-    ProfileUniSite: Union[str, None] = None
-    EducationDescription: Union[str, None] = None
-    ExtraDescription: Union[str, None] = None
-    AcademicRankID: int
-    
+    professorFName: str
+    professorMName: Union[str, None] = None
+    professorLName: str
+    profGender: Union[bool, None] = None
+    profCodeinUni: Union[int, None] = None
+    universityID: int
+    departmentID: int
+    email: str
+    linkedIN: Union[str, None] = None
+    googleScholar: Union[str, None] = None
+    h_Index: float
+    profileUniSite: Union[str, None] = None
+    educationDescription: Union[str, None] = None
+    extraDescription: Union[str, None] = None
+    academicRankID: int
+
+
 class professorUpdate(BaseModel):
-    ProfessorFName: str
-    ProfessorMName: Union[str, None] = None
-    ProfessorLName: str
-    ProfGender: Union[bool, None] = None
-    ProfCodeinUni: Union[int, None] = None
-    UniversityID: int
-    DepartmentID: int
-    Email: str
-    LinkedIN: Union[str, None] = None
-    GoogleScholar: Union[str, None] = None
-    H_Index: float
-    ProfileUniSite: Union[str, None] = None
-    EducationDescription: Union[str, None] = None
-    ExtraDescription: Union[str, None] = None
-    AcademicRankID: int
+    professorFName: str
+    professorMName: Union[str, None] = None
+    professorLName: str
+    profGender: Union[bool, None] = None
+    profCodeinUni: Union[int, None] = None
+    universityID: int
+    departmentID: int
+    email: str
+    linkedIN: Union[str, None] = None
+    googleScholar: Union[str, None] = None
+    h_Index: float
+    profileUniSite: Union[str, None] = None
+    educationDescription: Union[str, None] = None
+    extraDescription: Union[str, None] = None
+    academicRankID: int
 
 
 class professor(BaseModel):
-    ProfessorID: int
-    ProfessorFName: str
-    ProfessorMName: Union[str, None] = None
-    ProfessorLName: str
-    ProfGender: Union[bool, None] = None
-    ProfCodeinUni: Union[int, None] = None
-    UniversityID: int
-    DepartmentID: int
-    Email: str
-    LinkedIN: Union[str, None] = None
-    GoogleScholar: Union[str, None] = None
-    H_Index: float
-    ProfileUniSite: Union[str, None] = None
-    EducationDescription: Union[str, None] = None
-    ExtraDescription: Union[str, None] = None
-    AcademicRankID: int
+    professorID: int
+    professorFName: str
+    professorMName: Union[str, None] = None
+    professorLName: str
+    profGender: Union[bool, None] = None
+    profCodeinUni: Union[int, None] = None
+    universityID: int
+    departmentID: int
+    email: str
+    linkedIN: Union[str, None] = None
+    googleScholar: Union[str, None] = None
+    h_Index: float
+    profileUniSite: Union[str, None] = None
+    educationDescription: Union[str, None] = None
+    extraDescription: Union[str, None] = None
+    academicRankID: int

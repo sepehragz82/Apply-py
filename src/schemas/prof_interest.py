@@ -1,14 +1,17 @@
 from pydantic import BaseModel
 
+
 class prof_interestCreate(BaseModel):
-    ProfessorID: int
-    ResearchInterestID: int
+    professorID: int
+    researchInterestID: int
+
 
 class prof_interestUpdate(BaseModel):
-    ProfessorID: int
-    ResearchInterestID: int
+    professorID: int
+    researchInterestID: int
+
 
 class prof_interest(BaseModel):
-    ProfResearchInterestID: int
-    ProfessorID: int
-    ResearchInterestID: int
+    profResearchInterestID: int
+    professorID: int
+    researchInterestID: int
