@@ -3,8 +3,11 @@ from sqlalchemy.orm import relationship
 from src.database.session import Base
 
 
-class Country(Base):
-    __tablename__ = "country"
+class city(Base):
+    __tablename__ = "city"
 
-    CountryID = Column(Integer, primary_key=True, index=True)
-    CountryName = Column(String, index=True)
+    CityID = Column(Integer, primary_key=True, index=True)
+    CityName = Column(String, index=True)
+    CountryID = Column(ForeignKey, index=True)
+
+    author_id = relationship("User", back_populates="notes")
