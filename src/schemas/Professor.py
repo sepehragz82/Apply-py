@@ -3,7 +3,7 @@ from typing import Union
 from pydantic import BaseModel
 
 
-class ProfessorCreate(BaseModel):
+class professorCreate(BaseModel):
     ProfessorFName: str
     ProfessorMName: Union[str, None] = None
     ProfessorLName: str
@@ -20,7 +20,7 @@ class ProfessorCreate(BaseModel):
     ExtraDescription: Union[str, None] = None
     AcademicRankID: int
     
-class ProfessorUpdate(BaseModel):
+class professorUpdate(BaseModel):
     ProfessorFName: str
     ProfessorMName: Union[str, None] = None
     ProfessorLName: str
@@ -38,7 +38,7 @@ class ProfessorUpdate(BaseModel):
     AcademicRankID: int
 
 
-class Professor(BaseModel):
+class professor(BaseModel):
     ProfessorID: int
     ProfessorFName: str
     ProfessorMName: Union[str, None] = None

@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class PositionCreate(BaseModel):
+class positionCreate(BaseModel):
     FundID: int
     PossisionOn: bool
     ProfessorID: int
@@ -8,7 +8,7 @@ class PositionCreate(BaseModel):
     PositionTypeID: int
     PositionYear: int
 
-class PositionUpdate(BaseModel):
+class positionUpdate(BaseModel):
     FundID: int
     PossisionOn: bool
     ProfessorID: int
@@ -16,7 +16,7 @@ class PositionUpdate(BaseModel):
     PositionTypeID: int
     PositionYear: int
 
-class Position(BaseModel):
+class position(BaseModel):
     PositionID: int
     FundID: int
     PossisionOn: bool

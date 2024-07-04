@@ -1,12 +1,12 @@
 
 from pydantic import BaseModel
 
-class CountryCreate(BaseModel):
+class countryCreate(BaseModel):
     CountryName: str
 
-class CountryUpdate(BaseModel):
+class countryUpdate(BaseModel):
     CountryName: str
 
-class Country(BaseModel):
+class country(BaseModel):
     CountryID: int
     CountryName: str
