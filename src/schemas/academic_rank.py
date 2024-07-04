@@ -1,17 +1,20 @@
 from pydantic import BaseModel
 
 
-class AcademicRankCreate(BaseModel):
-    academicRankTitle: str
+class BaseAcademicRank(BaseModel):
+    academic_rank_title: str
 
 
-class AcademicRankUpdate(BaseModel):
-    academicRankTitle: str
+class AcademicRankCreate(BaseAcademicRank):
+    pass
 
 
-class AcademicRank(BaseModel):
-    academicRankID: int
-    academicRankTitle: str
+class AcademicRankUpdate(BaseAcademicRank):
+    pass
+
+
+class AcademicRank(BaseAcademicRank):
+    academic_rank_id: int
 
     class Config:
         orm_mode = True

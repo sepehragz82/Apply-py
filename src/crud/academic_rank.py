@@ -9,7 +9,7 @@ class AcademicRank:
         self, db: Session, academic_rank: schemas.AcademicRankCreate
     ) -> models.AcademicRank:
         db_academic_rank = models.AcademicRank(
-            academicRankTitle=academic_rank.academicRankTitle,
+            academicRankTitle=academic_rank.academic_rank_title,
         )
         db.add(db_academic_rank)
         db.commit()
