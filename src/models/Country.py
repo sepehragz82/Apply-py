@@ -3,8 +3,8 @@ from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text
 from src.database.session import Base
 
 
-class country(Base):
+class Country(Base):
     __tablename__ = "country"
 
-    CountryID = Column(Integer, primary_key=True)
-    CountryName = Column(String)
+    countryID = Column(Integer, primary_key=True)
+    countryName = Column(String)
