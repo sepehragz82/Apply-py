@@ -1,29 +1,22 @@
 from pydantic import BaseModel
 
 
-class PositionCreate(BaseModel):
-    fundID: int
-    positionOn: bool
-    professorID: int
-    departmentID: int
-    positionTypeID: int
-    positionYear: int
+class BasePosition(BaseModel):
+    fund_id: int
+    position_on: bool
+    professor_id: int
+    department_id: int
+    position_type_id: int
+    position_year: int
 
 
-class PositionUpdate(BaseModel):
-    fundID: int
-    positionOn: bool
-    professorID: int
-    departmentID: int
-    positionTypeID: int
-    positionYear: int
+class PositionCreate(BasePosition):
+    pass
 
 
-class Position(BaseModel):
-    positionID: int
-    fundID: int
-    positionOn: bool
-    professorID: int
-    departmentID: int
-    positionTypeID: int
-    positionYear: int
+class PositionUpdate(BasePosition):
+    pass
+
+
+class Position(BasePosition):
+    position_id: int

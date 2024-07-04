@@ -8,12 +8,12 @@ from src import models, schemas
 class PositionService:
     def create(self, db: Session, Position: schemas.PositionCreate) -> models.Position:
         db_item = models.Position(
-            positionOn = Position.positionOn,
-            positionYear = Position.positionYear,
-            professorID = Position.professorID,
-            fundID = Position.fundID,
-            positionTypeID = Position.positionTypeID,
-            departmentID = Position.departmentID
+            positionOn=Position.position_on,
+            positionYear=Position.position_year,
+            professorID=Position.professor_id,
+            fundID=Position.fund_id,
+            positionTypeID=Position.position_type_id,
+            departmentID=Position.department_id,
         )
         db.add(db_item)
         db.commit()
@@ -32,7 +32,9 @@ class PositionService:
         )
 
     def get_by_id(self, db: Session, id: int) -> Optional[models.Position]:
-        return db.query(models.Position).filter(models.Position.positionID == id).first()
+        return (
+            db.query(models.Position).filter(models.Position.positionID == id).first()
+        )
 
     def update(
         self, db: Session, id: int, Item_update: schemas.PositionUpdate
