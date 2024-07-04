@@ -16,3 +16,6 @@ class ProfInterestUpdate(BaseProfInterest):
 
 class ProfInterest(BaseProfInterest):
     prof_research_interest_id: int
+
+    class Config:
+        orm_mode = True

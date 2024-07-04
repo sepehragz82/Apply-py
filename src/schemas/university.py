@@ -21,3 +21,6 @@ class UniversityUpdate(BaseUniversity):
 
 class University(BaseUniversity):
     pass
+
+    class Config:
+        orm_mode = True

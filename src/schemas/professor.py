@@ -29,3 +29,6 @@ class ProfessorUpdate(BaseProfessor):
 
 class Professor(BaseProfessor):
     professor_id: int
+
+    class Config:
+        orm_mode = True

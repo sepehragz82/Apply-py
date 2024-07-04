@@ -13,6 +13,5 @@ class Fund(BaseModel):
     fundID: int
     fundType: str
 
-
-class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True

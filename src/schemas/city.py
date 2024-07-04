@@ -16,6 +16,5 @@ class City(BaseModel):
     cityName: str
     countryID: int
 
-
-class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True

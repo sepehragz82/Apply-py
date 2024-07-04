@@ -13,6 +13,5 @@ class AcademicRank(BaseModel):
     academicRankID: int
     academicRankTitle: str
 
-
-class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True

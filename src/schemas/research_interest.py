@@ -16,3 +16,6 @@ class ResearchInterestUpdate(BaseResearchInterest):
 
 class ResearchInterest(BaseResearchInterest):
     research_interest_id: int
+
+    class Config:
+        orm_mode = True

@@ -20,3 +20,6 @@ class PositionUpdate(BasePosition):
 
 class Position(BasePosition):
     position_id: int
+
+    class Config:
+        orm_mode = True

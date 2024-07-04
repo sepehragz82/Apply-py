@@ -13,6 +13,5 @@ class Country(BaseModel):
     countryID: int
     countryName: str
 
-
-class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
