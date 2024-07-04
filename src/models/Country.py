@@ -1,10 +1,9 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text
-from sqlalchemy.orm import relationship
 from src.database.session import Base
 
 
 class Country(Base):
     __tablename__ = "country"
 
-    CountryID = Column(Integer, primary_key=True, index=True)
+    CountryID = Column(Integer, primary_key=True, index=True, nullable)
     CountryName = Column(String, index=True)
