@@ -45,7 +45,7 @@ class ProfessorService:
     def get_by_id(self, db: Session, id: int) -> Optional[models.Professor]:
         return (
             db.query(models.Professor)
-            .filter(models.Professor.professorID == id)
+            .filter(models.Professor.ProfessorID == id)
             .first()
         )
 
