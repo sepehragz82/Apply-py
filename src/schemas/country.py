@@ -1,17 +1,20 @@
 from pydantic import BaseModel
 
 
-class CountryCreate(BaseModel):
-    countryName: str
+class BaseCountry(BaseModel):
+    country_name: str
 
 
-class CountryUpdate(BaseModel):
-    countryName: str
+class CountryCreate(BaseCountry):
+    pass
 
 
-class Country(BaseModel):
-    countryID: int
-    countryName: str
+class CountryUpdate(BaseCountry):
+    pass
+
+
+class Country(BaseCountry):
+    country_id: int
 
     class Config:
         orm_mode = True

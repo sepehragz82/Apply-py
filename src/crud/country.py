@@ -8,8 +8,7 @@ from src import models, schemas
 class CountryService:
     def create(self, db: Session, country: schemas.CountryCreate) -> models.Country:
         db_item = models.Country(
-            countryID = country.countryID,
-            countryName = country.countryName
+            countryID=country.countryID, countryName=country.country_name
         )
         db.add(db_item)
         db.commit()
