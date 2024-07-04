@@ -3,8 +3,8 @@ from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, T
 from src.database.session import Base
 
 
-class position_type(Base):
+class PositionType(Base):
     __tablename__ = "position_type"
 
-    PositionTypeID = Column(Integer, primary_key=True)
-    PositionType = Column(String)
+    positionTypeID = Column(Integer, primary_key=True)
+    positionType = Column(String)
