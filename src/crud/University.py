@@ -6,10 +6,14 @@ from src import models, schemas
 
 
 class ItemService:
-    def create(self, db: Session, University: schemas.itemCreate) -> models.item:
-        db_item = models.item(
-            name=item.name,
-            price=item.price,
+    def create(self, db: Session, University: schemas.UniversityCreate) -> models.University:
+        db_item = models.University(
+            UniversityID = UNiversity.UniversityID,
+            UniversityName = University.UniversityName,
+            CityID = University.CityID,
+            InternationalsAsTA = University.InternationalsAsTA,
+            FallDeadline = University.FallDeadline,
+            WinterDeadline = University.WinterDeadline
         )
         db.add(db_item)
         db.commit()
@@ -18,10 +22,10 @@ class ItemService:
 
     def get_all(
         self, db: Session, skip: int = 0, limit: int = 100
-    ) -> List[models.Item]:
+    ) -> List[models.University]:
         return (
-            db.query(models.Item)
-            .order_by(models.Item.id.desc())
+            db.query(models.University)
+            .order_by(models.University.id.desc())
             .offset(skip)
             .limit(limit)
             .all()
