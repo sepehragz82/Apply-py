@@ -1,8 +1,9 @@
 class Professor:
-    def __init__(self, ProffesorFName, ProffesorLName, UniversityID, DepartmentID, Email, H_Index, ProffesorMName = None, ProfGender = None, ProfCodeinUni = None, LinkedIN = None, GoogleScholar = None, ProfileUniSite = None, EducationDescription = None, ExtraDescription = None, AcademicRankID = None):
-        self.ProffesorFName = ProffesorFName
-        self.ProffesorMName = ProffesorMName
-        self.ProffesorLName = ProffesorLName
+    def __init__(self, ProfessorID, ProfessorFName, ProfessorLName, UniversityID, DepartmentID, Email, H_Index, ProfessorMName = None, ProfGender = None, ProfCodeinUni = None, LinkedIN = None, GoogleScholar = None, ProfileUniSite = None, EducationDescription = None, ExtraDescription = None, AcademicRankID = None):
+        self.ProfessorID = ProfessorID
+        self.ProfessorFName = ProfessorFName
+        self.ProfessorMName = ProfessorMName
+        self.ProfessorLName = ProfessorLName
         self.ProfGender = ProfGender
         self.ProfCodeinUni = ProfCodeinUni
         self.UniversityID = UniversityID
