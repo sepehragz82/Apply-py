@@ -41,7 +41,7 @@ class UniversityService:
 
         update_data = item_update.dict(exclude_unset=True)
 
-        for field, value in update_data.University():
+        for field, value in update_data.items():
             setattr(db_item, field, value)
 
         db.commit()
