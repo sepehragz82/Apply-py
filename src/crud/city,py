@@ -1,0 +1,58 @@
+from sqlalchemy.orm import Session
+from sqlalchemy.sql import func
+
+from src import models, schemas
+from src.core.security import get_password_hash, verify_password
+
+
+class City:
+    def create(self, db: Session, city: schemas.CityCreate) -> models.User:
+        db_city = models.City(
+            cityName=city.cityName,
+        )
+        db.add(db_city)
+        db.commit()
+        db.refresh(db_city)
+        return db_city
+
+    def update(
+        self, db: Session, cityName: str, city_update: schemas.CityUpdate
+    ) -> models.City:
+        db_city = self.get_user_by_cityName(db, username=cityName)
+
+        update_data = city_update.dict(exclude_unset=True)
+        update_data["modified_at"] = func.now()
+
+        for field, value in update_data.items():
+            setattr(db_city, field, value)
+
+        db.commit()
+        db.refresh(db_city)
+        return db_city
+
+    def delete(self, db: Session, cityName: str):
+        db_city = self.get_user_by_username(db, cityName=cityName)
+        db.delete(db_city)
+        db.commit()
+
+    def get_all_cities_count(self, db: Session) -> int:
+        return db.query(models.City).count()
+
+    def get_all_users(
+        self, db: Session, skip: int = 0, limit: int = 100
+    ) -> list[models.City]:
+        return (
+            db.query(models.City)
+            .order_by(models.City.cityID)
+            .offset(skip)
+            .limit(limit)
+            .all()
+        )
+
+    def get_user_by_id(self, db: Session, id: int) -> models.City | None:
+        return db.query(models.City).filter(models.City.cityID == id).first()
+
+    def get_user_by_username(self, db: Session, cityName: str) -> models.User | None:
+        return db.query(models.City).filter(models.City.cityName == cityName).first()
+
+coty = City()
