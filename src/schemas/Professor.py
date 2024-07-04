@@ -4,7 +4,6 @@ from pydantic import BaseModel
 
 
 class ProfessorCreate(BaseModel):
-    ProfessorID: int
     ProfessorFName: str
     ProfessorMName: Union[str, None] = None
     ProfessorLName: str
@@ -20,8 +19,8 @@ class ProfessorCreate(BaseModel):
     EducationDescription: Union[str, None] = None
     ExtraDescription: Union[str, None] = None
     AcademicRankID: int
+    
 class ProfessorUpdate(BaseModel):
-    ProfessorID: int
     ProfessorFName: str
     ProfessorMName: Union[str, None] = None
     ProfessorLName: str
