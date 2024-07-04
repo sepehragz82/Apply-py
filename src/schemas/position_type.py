@@ -1,17 +1,20 @@
 from pydantic import BaseModel
 
 
-class PositionTypeCreate(BaseModel):
-    positionType: str
+class BasePositionType(BaseModel):
+    position_type: str
 
 
-class PositionTypeUpdate(BaseModel):
-    positionType: str
+class PositionTypeCreate(BasePositionType):
+    pass
 
 
-class PositionType(BaseModel):
-    positionTypeID: int
-    positionType: str
+class PositionTypeUpdate(BasePositionType):
+    pass
+
+
+class PositionType(BasePositionType):
+    position_type_id: int
 
     class Config:
         orm_mode = True
