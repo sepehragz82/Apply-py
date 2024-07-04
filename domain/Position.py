@@ -1,5 +1,5 @@
 class Position:
-    def __init__(self, PositionID, FundID, PossisionOn, ProfessorID, DepartmentID, PositionTypeID, PositionYear):
+    def __init__(self, PositionID, FundID, PossisionOn, ProfessorID, DepartmentID, PositionTypeID, PositionYear = None):
         self.PositionID = PositionID
         self.FundID = FundID
         self.PossisionOn = PossisionOn
