@@ -1,19 +1,20 @@
-from typing import Union
-
 from pydantic import BaseModel
 
 
-class DepartmentCreate(BaseModel):
-    departmentName: str
+class BaseDepartment(BaseModel):
+    department_name: str
 
 
-class DepartmentUpdate(BaseModel):
-    departmentName: str
+class DepartmentCreate(BaseDepartment):
+    pass
 
 
-class Department(BaseModel):
-    departmentID: int
-    departmentName: str
+class DepartmentUpdate(BaseDepartment):
+    pass
+
+
+class Department(BaseDepartment):
+    department_id: int
 
     class Config:
         orm_mode = True

@@ -6,10 +6,12 @@ from src import models, schemas
 
 
 class DepartmentService:
-    def create(self, db: Session, department: schemas.DepartmentCreate) -> models.Department:
+    def create(
+        self, db: Session, department: schemas.DepartmentCreate
+    ) -> models.Department:
         db_item = models.Department(
-            departmentID = department.departmentID,
-            departmentName = department.departmentName
+            departmentID=department.departmentID,
+            departmentName=department.department_name,
         )
         db.add(db_item)
         db.commit()
@@ -28,7 +30,11 @@ class DepartmentService:
         )
 
     def get_by_id(self, db: Session, id: int) -> Optional[models.Department]:
-        return db.query(models.Department).filter(models.Department.departmentID == id).first()
+        return (
+            db.query(models.Department)
+            .filter(models.Department.departmentID == id)
+            .first()
+        )
 
     def update(
         self, db: Session, id: int, item_update: schemas.Department
