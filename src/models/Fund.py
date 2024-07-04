@@ -3,8 +3,8 @@ from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, T
 from src.database.session import Base
 
 
-class fund(Base):
+class Fund(Base):
     __tablename__ = "fund"
 
-    FundID = Column(Integer, primary_key=True)
-    FundType = Column(String)
+    fundID = Column(Integer, primary_key=True)
+    fundType = Column(String)
