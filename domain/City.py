@@ -4,4 +4,3 @@ class City:
         self.CityName = CityName
         self.CountryID = CountryID
     
-
