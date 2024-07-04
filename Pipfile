@@ -5,9 +5,16 @@ name = "pypi"
 
 [packages]
 fastapi = "*"
-pydantic = "*"
+uvicorn = {extras = ["standard"], version = "*"}
+passlib = {extras = ["bcrypt"], version = "*"}
+python-jose = {extras = ["cryptography"], version = "*"}
+python-multipart = "*"
+sqlalchemy = "*"
+alembic = "*"
+psycopg2 = "*"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.12"
