@@ -14,6 +14,7 @@ class ItemUpdate(BaseModel):
 
 
 class Item(BaseModel):
+    id: int
     name: str
     price: float
     is_offer: Union[bool, None] = None
