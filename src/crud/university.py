@@ -6,14 +6,16 @@ from src import models, schemas
 
 
 class UniversityService:
-    def create(self, db: Session, University: schemas.UniversityCreate) -> models.University:
+    def create(
+        self, db: Session, University: schemas.UniversityCreate
+    ) -> models.University:
         db_item = models.University(
-            universityID = University.universityID,
-            universityName = University.universityName,
-            cityID = University.cityID,
-            internationalsAsTA = University.internationalsAsTA,
-            fallDeadline = University.fallDeadline,
-            winterDeadline = University.winterDeadline
+            universityID=University.universityID,
+            universityName=University.university_name,
+            cityID=University.city_id,
+            internationalsAsTA=University.internationals_as_ta,
+            fallDeadline=University.fall_deadline,
+            winterDeadline=University.winter_deadline,
         )
         db.add(db_item)
         db.commit()
@@ -32,7 +34,11 @@ class UniversityService:
         )
 
     def get_by_id(self, db: Session, id: int) -> Optional[models.University]:
-        return db.query(models.University).filter(models.University.universityID == id).first()
+        return (
+            db.query(models.University)
+            .filter(models.University.universityID == id)
+            .first()
+        )
 
     def update(
         self, db: Session, id: int, item_update: schemas.UniversityUpdate
