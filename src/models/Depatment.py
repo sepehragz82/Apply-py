@@ -1,9 +1,10 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text, DateTime
+from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, Text
+
 from src.database.session import Base
 
 
 class department(Base):
     __tablename__ = "department"
 
-    DepartmentID = Column(Integer, primary_key=True, index=True)
-    DepartmentName = Column(String, index=True)
+    DepartmentID = Column(Integer, primary_key=True)
+    DepartmentName = Column(String)

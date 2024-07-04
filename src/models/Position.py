@@ -1,14 +1,15 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text, DateTime
+from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.orm import relationship
+
 from src.database.session import Base
 
 
 class position(Base):
     __tablename__ = "position"
 
-    PositionID = Column(Integer, primary_key=True, index=True)
-    PossisionOn = Column(Boolean, index=True)
-    PositionYear = Column(Integer, index=True)
+    PositionID = Column(Integer, primary_key=True)
+    PossisionOn = Column(Boolean)
+    PositionYear = Column(Integer)
 
     ProfessorID = relationship("position", back_populates="professor")
     FundID = relationship("position", back_populates="fund")
