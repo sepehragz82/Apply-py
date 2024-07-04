@@ -1,20 +1,22 @@
 from pydantic import BaseModel
 
 
-class CityCreate(BaseModel):
-    cityName: str
-    countryID: int
+class BaseCity(BaseModel):
+    city_name: str
+    country_id: int
 
 
-class CityUpdate(BaseModel):
-    cityName: str
-    countryID: int
+class CityCreate(BaseCity):
+    pass
 
 
-class City(BaseModel):
-    cityID: int
-    cityName: str
-    countryID: int
+class CityUpdate(BaseCity):
+
+    pass
+
+
+class City(BaseCity):
+    city_id: int
 
     class Config:
         orm_mode = True
