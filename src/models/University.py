@@ -4,13 +4,13 @@ from sqlalchemy.orm import relationship
 from src.database.session import Base
 
 
-class university(Base):
+class University(Base):
     __tablename__ = "university"
 
-    UnivercityID = Column(Integer, primary_key=True)
-    UniversityName = Column(String)
-    InternationalsAsTA = Column(Boolean)
-    FallDeadline = Column(DateTime)
-    WinterDeadline = Column(DateTime)
+    universityID = Column(Integer, primary_key=True)
+    universityName = Column(String)
+    internationalsAsTA = Column(Boolean)
+    fallDeadline = Column(DateTime)
+    winterDeadline = Column(DateTime)
 
-    CityID = relationship("university", back_populates="city")
+    cityID = relationship("university", back_populates="city")
