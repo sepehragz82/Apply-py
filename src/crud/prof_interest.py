@@ -33,12 +33,12 @@ class ProfInterestService:
 
     def update(
         self, db: Session, id: int, Item_update: schemas.ProfInterestUpdate
-    ) -> models.Country:
+    ) -> models.ProfInterest:
         db_item = self.get_by_id(db, id=id)
 
         update_data = Item_update.dict(exclude_unset=True)
 
-        for field, value in update_data.ProfInterest():
+        for field, value in update_data.items():
             setattr(db_item, field, value)
 
         db.commit()
