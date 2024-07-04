@@ -1,17 +1,20 @@
 from pydantic import BaseModel
 
 
-class FundCreate(BaseModel):
-    fundType: str
+class BaseFund(BaseModel):
+    fund_type: str
 
 
-class FundUpdate(BaseModel):
-    fundType: str
+class FundCreate(BaseFund):
+    pass
 
 
-class Fund(BaseModel):
-    fundID: int
-    fundType: str
+class FundUpdate(BaseFund):
+    pass
+
+
+class Fund(BaseFund):
+    fund_id: int
 
     class Config:
         orm_mode = True

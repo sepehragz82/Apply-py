@@ -7,7 +7,7 @@ from src import models, schemas
 class Fund:
     def create(self, db: Session, fund: schemas.FundCreate) -> models.Fund:
         db_fund = models.Fund(
-            fundType=fund.fundType,
+            fundType=fund.fund_type,
         )
         db.add(db_fund)
         db.commit()
