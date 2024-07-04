@@ -9,7 +9,7 @@ class ItemManager(object):
     def __init__(self):
         pass
 
-    def create(db: Session, user: schemas.Item) -> models.Item:
+    def create(self, db: Session, user: schemas.Item) -> models.Item:
         db_item = models.Item(
             name=user.name,
             price=user.price,
@@ -19,7 +19,9 @@ class ItemManager(object):
         db.refresh(db_item)
         return db_item
 
-    def get_all(db: Session, skip: int = 0, limit: int = 100) -> List[models.Item]:
+    def get_all(
+        self, db: Session, skip: int = 0, limit: int = 100
+    ) -> List[models.Item]:
         return (
             db.query(models.Item)
             .order_by(models.Item.id.desc())
@@ -29,10 +31,12 @@ class ItemManager(object):
             .all()
         )
 
-    def get_by_id(db: Session, id: int) -> Optional[models.Item]:
+    def get_by_id(self, db: Session, id: int) -> Optional[models.Item]:
         return db.query(models.Item).filter(models.Item.id == id).first()
 
-    def update(db: Session, id: int, item_update: schemas.ItemUpdate) -> models.Item:
+    def update(
+        self, db: Session, id: int, item_update: schemas.ItemUpdate
+    ) -> models.Item:
         db_note = self.get_by_id(db, id=id)
 
         update_data = item_update.dict(exclude_unset=True)
@@ -44,7 +48,7 @@ class ItemManager(object):
         db.refresh(db_note)
         return db_note
 
-    def remove(db: Session, id: int) -> models.Note:
+    def remove(self, db: Session, id: int) -> models.Note:
         db_note = self.get_by_id(db, id=id)
         db.delete(db_note)
         db.commit()
