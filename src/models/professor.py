@@ -19,10 +19,10 @@ class Professor(Base):
     university_id: Mapped[int] = mapped_column(ForeignKey("university.university_id"))
     department_id: Mapped[int] = mapped_column(ForeignKey("department.department_id"))
     email: Mapped[str] = mapped_column(String(45))
-    linkedin: Mapped[str] = mapped_column(nullable=True)
-    google_scholar: Mapped[str] = mapped_column(nullable=True)
+    linkedin: Mapped[str] = mapped_column(String(45), nullable=True)
+    google_scholar: Mapped[str] = mapped_column(String(45),nullable=True)
     h_index: Mapped[float] = mapped_column()
-    profile_uni_site: Mapped[int] = mapped_column(nullable=True)
+    profile_uni_site: Mapped[int] = mapped_column(String(45), nullable=True)
     education_description: Mapped[str] = mapped_column(String(200), nullable=True)
     extra_description: Mapped[str] = mapped_column(String(200), nullable=True)
     academic_rank_id: Mapped[int] = mapped_column(
