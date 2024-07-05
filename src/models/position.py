@@ -16,7 +16,7 @@ class Position(Base):
     professorID: Mapped[int] = mapped_column(ForeignKey("professor.professorID"))
     departmentID: Mapped[int] = mapped_column(ForeignKey("department.departmentID"))
     positionTypeID: Mapped[int] = mapped_column(
-        ForeignKey("position_type.position_typeID")
+        ForeignKey("position_type.positionTypeID")
     )
     positionYear: Mapped[int] = mapped_column()
 

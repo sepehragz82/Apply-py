@@ -10,16 +10,16 @@ from src.database.session import Base
 class University(Base):
     __tablename__ = "university"
 
-    universityID: Mapped[int] = mapped_column(primary_key=True)
-    cityID: Mapped[int] = mapped_column(ForeignKey("city.id"))
-    universityName: Mapped[str] = mapped_column()
-    internationalsAsTA: Mapped[bool] = mapped_column()
-    fallDeadline: Mapped[datetime] = mapped_column()
-    winterDeadline: Mapped[datetime] = mapped_column()
+    university_id: Mapped[int] = mapped_column(primary_key=True)
+    city_id: Mapped[int] = mapped_column(ForeignKey("city.cityID"))
+    university_name: Mapped[str] = mapped_column()
+    internationals_as_ta: Mapped[bool] = mapped_column()
+    fall_deadline: Mapped[datetime] = mapped_column()
+    winter_deadline: Mapped[datetime] = mapped_column()
 
-    createdAt: Mapped[datetime] = mapped_column(
+    created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
-    modifiedAt: Mapped[datetime] = mapped_column(
+    modified_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )

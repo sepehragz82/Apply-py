@@ -10,11 +10,11 @@ from src import models, schemas
 class University:
     def create(self, db: Session, data: schemas.UniversityCreate) -> models.University:
         db_record = models.University(
-            universityName=data.university_name,
-            cityID=data.city_id,
-            internationalsAsTA=data.internationals_as_ta,
-            fallDeadline=data.fall_deadline,
-            winterDeadline=data.winter_deadline,
+            city_id=data.city_id,
+            university_name=data.university_name,
+            internationals_as_ta=data.internationals_as_ta,
+            fall_deadline=data.fall_deadline,
+            winter_deadline=data.winter_deadline,
         )
         db.add(db_record)
         db.commit()
@@ -54,7 +54,7 @@ class University:
     ) -> List[models.University]:
         return (
             db.query(models.University)
-            .order_by(models.University.universityID)
+            .order_by(models.University.university_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -63,7 +63,7 @@ class University:
     def get_by_id(self, db: Session, id: int) -> models.University | None:
         return (
             db.query(models.University)
-            .filter(models.University.universityID == id)
+            .filter(models.University.university_id == id)
             .first()
         )
 

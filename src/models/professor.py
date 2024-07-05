@@ -16,7 +16,7 @@ class Professor(Base):
     professorLName: Mapped[str] = mapped_column()
     profGender: Mapped[bool] = mapped_column(nullable=True)
     profCodeinUni: Mapped[int] = mapped_column(nullable=True)
-    universityID: Mapped[int] = mapped_column(ForeignKey("university.universityID"))
+    universityID: Mapped[int] = mapped_column(ForeignKey("university.university_id"))
     departmentID: Mapped[int] = mapped_column(ForeignKey("department.departmentID"))
     email: Mapped[str] = mapped_column()
     linkedIN: Mapped[str] = mapped_column(nullable=True)
