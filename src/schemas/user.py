@@ -5,14 +5,12 @@ from pydantic import BaseModel
 
 class UserCreate(BaseModel):
     username: str
-    name: str
     password: str
 
 
 class UserUpdate(BaseModel):
     username: str
     name: str
-    bio: str
 
 
 class PasswordUpdate(BaseModel):
