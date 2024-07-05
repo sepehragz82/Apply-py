@@ -1,4 +1,8 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Text
+from datetime import datetime
+
+from sqlalchemy import DateTime
+from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.sql import func
 
 from src.database.session import Base
 
@@ -6,5 +10,12 @@ from src.database.session import Base
 class Country(Base):
     __tablename__ = "country"
 
-    countryID = Column(Integer, primary_key=True)
-    countryName = Column(String)
+    countryID: Mapped[int] = mapped_column(primary_key=True)
+    countryName: Mapped[str] = mapped_column()
+
+    createdAt: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    modifiedAt: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )

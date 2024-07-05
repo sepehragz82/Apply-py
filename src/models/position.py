@@ -1,5 +1,8 @@
-from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, Text
-from sqlalchemy.orm import relationship
+from datetime import datetime
+
+from sqlalchemy import DateTime, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.sql import func
 
 from src.database.session import Base
 
@@ -7,11 +10,19 @@ from src.database.session import Base
 class Position(Base):
     __tablename__ = "position"
 
-    positionID = Column(Integer, primary_key=True)
-    positionOn = Column(Boolean)
-    positionYear = Column(Integer)
+    positionID: Mapped[int] = mapped_column(primary_key=True)
+    fundID: Mapped[int] = mapped_column(ForeignKey("fund.fundID"))
+    positionOn: Mapped[bool] = mapped_column()
+    professorID: Mapped[int] = mapped_column(ForeignKey("professor.professorID"))
+    departmentID: Mapped[int] = mapped_column(ForeignKey("department.departmentID"))
+    positionTypeID: Mapped[int] = mapped_column(
+        ForeignKey("position_type.position_typeID")
+    )
+    positionYear: Mapped[int] = mapped_column()
 
-    professorID = relationship("position", back_populates="professor")
-    fundID = relationship("position", back_populates="fund")
-    positionTypeID = relationship("position", back_populates="position_type")
-    departmentID = relationship("position", back_populates="department")
+    createdAt: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    modifiedAt: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
