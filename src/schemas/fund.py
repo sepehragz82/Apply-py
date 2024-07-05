@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from pydantic import BaseModel
 
 
@@ -15,6 +17,8 @@ class FundUpdate(BaseFund):
 
 class Fund(BaseFund):
     fund_id: int
+    created_at: datetime
+    modified_at: datetime
 
     class Config:
         orm_mode = True
