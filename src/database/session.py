@@ -7,7 +7,7 @@ uri = settings.DATABASE_URL
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
-engine = create_engine(uri, connect_args={"check_same_thread": False})
+engine = create_engine(uri)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
