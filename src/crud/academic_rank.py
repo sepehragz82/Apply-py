@@ -38,7 +38,7 @@ class AcademicRank:
         return db_record
 
     def delete(self, db: Session, id: int) -> models.AcademicRank:
-        db_record = self.get_by_id(db, id=id)
+        db_record = self.get_by_id(db, id)
 
         if db_record is None:
             raise HTTPException(status_code=404, detail="Record not found")
