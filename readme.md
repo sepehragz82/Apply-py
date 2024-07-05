@@ -7,16 +7,21 @@
 
 ## Installation
 
-```console
-pip install fastapi sqlalchemy passlib[bcrypt] python-jose[cryptography] pydantic-settings mysql-connector-python
+```bash
+pip install fastapi
+pip install sqlalchemy
+pip install passlib[bcrypt]
+pip install python-jose[cryptography]
+pip install pydantic-settings
+pip install mysql-connector-pytho
 ```
 
 ## Configuration
 
-Edit .env file
+Edit `.env` file
 
 ## Execution
 
-```console
+```bash
 uvicorn src.main:app
 ```
