@@ -12,7 +12,7 @@ def create(
     data: schemas.ProfInterestCreate,
     db: Session = Depends(deps.get_db),
 ):
-    return crud.profInterest.create(db, data)
+    return crud.prof_interest.create(db, data)
 
 
 @router.put("/{id}", response_model=schemas.ProfInterest)
@@ -21,7 +21,7 @@ def update(
     data: schemas.ProfInterestUpdate,
     db: Session = Depends(deps.get_db),
 ):
-    return crud.profInterest.update(db, id, data)
+    return crud.prof_interest.update(db, id, data)
 
 
 @router.delete("/{id}")
@@ -29,12 +29,12 @@ def delete(
     id: int,
     db: Session = Depends(deps.get_db),
 ):
-    crud.profInterest.delete(db, id)
+    crud.prof_interest.delete(db, id)
 
 
 @router.get("/all/", response_model=list[schemas.ProfInterest])
 def get_all(skip: int = 0, limit: int = 100, db: Session = Depends(deps.get_db)):
-    return crud.profInterest.get_all(db, skip=skip, limit=limit)
+    return crud.prof_interest.get_all(db, skip=skip, limit=limit)
 
 
 @router.get("/{id}", response_model=schemas.ProfInterest)
@@ -42,7 +42,7 @@ def get_by_id(
     id: int,
     db: Session = Depends(deps.get_db),
 ):
-    db_record = crud.profInterest.get_by_id(db, id=id)
+    db_record = crud.prof_interest.get_by_id(db, id=id)
 
     if db_record is None:
         raise HTTPException(status_code=404, detail="Record not found")

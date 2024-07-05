@@ -64,4 +64,4 @@ class PositionType:
         )
 
 
-positionType = PositionType()
+position_type = PositionType()

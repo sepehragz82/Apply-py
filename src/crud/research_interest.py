@@ -67,4 +67,4 @@ class ResearchInterest:
         )
 
 
-researchInterest = ResearchInterest()
+research_interest = ResearchInterest()

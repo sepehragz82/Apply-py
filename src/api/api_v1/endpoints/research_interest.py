@@ -12,7 +12,7 @@ def create(
     data: schemas.ResearchInterestCreate,
     db: Session = Depends(deps.get_db),
 ):
-    return crud.researchInterest.create(db, data)
+    return crud.research_interest.create(db, data)
 
 
 @router.put("/{id}", response_model=schemas.ResearchInterest)
@@ -21,7 +21,7 @@ def update(
     data: schemas.ResearchInterestUpdate,
     db: Session = Depends(deps.get_db),
 ):
-    return crud.researchInterest.update(db, id, data)
+    return crud.research_interest.update(db, id, data)
 
 
 @router.delete("/{id}")
@@ -29,12 +29,12 @@ def delete(
     id: int,
     db: Session = Depends(deps.get_db),
 ):
-    crud.researchInterest.delete(db, id)
+    crud.research_interest.delete(db, id)
 
 
 @router.get("/all/", response_model=list[schemas.ResearchInterest])
 def get_all(skip: int = 0, limit: int = 100, db: Session = Depends(deps.get_db)):
-    return crud.researchInterest.get_all(db, skip=skip, limit=limit)
+    return crud.research_interest.get_all(db, skip=skip, limit=limit)
 
 
 @router.get("/{id}", response_model=schemas.ResearchInterest)
@@ -42,7 +42,7 @@ def get_by_id(
     id: int,
     db: Session = Depends(deps.get_db),
 ):
-    db_record = crud.researchInterest.get_by_id(db, id=id)
+    db_record = crud.research_interest.get_by_id(db, id=id)
 
     if db_record is None:
         raise HTTPException(status_code=404, detail="Record not found")

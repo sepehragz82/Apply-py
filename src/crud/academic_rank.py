@@ -66,4 +66,4 @@ class AcademicRank:
         )
 
 
-academicRank = AcademicRank()
+academic_rank = AcademicRank()

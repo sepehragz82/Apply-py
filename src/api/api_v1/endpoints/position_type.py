@@ -12,7 +12,7 @@ def create(
     data: schemas.PositionTypeCreate,
     db: Session = Depends(deps.get_db),
 ):
-    return crud.positionType.create(db, data)
+    return crud.position_type.create(db, data)
 
 
 @router.put("/{id}", response_model=schemas.PositionType)
@@ -21,7 +21,7 @@ def update(
     data: schemas.PositionTypeUpdate,
     db: Session = Depends(deps.get_db),
 ):
-    return crud.positionType.update(db, id, data)
+    return crud.position_type.update(db, id, data)
 
 
 @router.delete("/{id}")
@@ -29,12 +29,12 @@ def delete(
     id: int,
     db: Session = Depends(deps.get_db),
 ):
-    crud.positionType.delete(db, id)
+    crud.position_type.delete(db, id)
 
 
 @router.get("/all/", response_model=list[schemas.PositionType])
 def get_all(skip: int = 0, limit: int = 100, db: Session = Depends(deps.get_db)):
-    return crud.positionType.get_all(db, skip=skip, limit=limit)
+    return crud.position_type.get_all(db, skip=skip, limit=limit)
 
 
 @router.get("/{id}", response_model=schemas.PositionType)
@@ -42,7 +42,7 @@ def get_by_id(
     id: int,
     db: Session = Depends(deps.get_db),
 ):
-    db_record = crud.positionType.get_by_id(db, id=id)
+    db_record = crud.position_type.get_by_id(db, id=id)
 
     if db_record is None:
         raise HTTPException(status_code=404, detail="Record not found")

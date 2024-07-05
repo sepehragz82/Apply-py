@@ -67,4 +67,4 @@ class ProfInterest:
         )
 
 
-profInterest = ProfInterest()
+prof_interest = ProfInterest()
