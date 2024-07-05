@@ -77,5 +77,21 @@ class Professor:
             .first()
         )
 
+    def search(
+        self, db: Session, university_id: int | None, department_id: int | None
+    ) -> List[models.Professor]:
+        db_records = db.query(models.Professor)
+
+        if university_id:
+            db_records = db_records.filter(
+                models.Professor.university_id == university_id
+            )
+        if department_id:
+            db_records = db_records.filter(
+                models.Professor.department_id == department_id
+            )
+
+        return db_records.order_by(models.Professor.professor_id).all()
+
 
 professor = Professor()

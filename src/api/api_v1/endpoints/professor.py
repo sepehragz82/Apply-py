@@ -48,3 +48,14 @@ def get_by_id(
         raise HTTPException(status_code=404, detail="Record not found")
 
     return db_record
+
+
+@router.get("/search/", response_model=list[schemas.Professor])
+def search(
+    university_id: int | None = None,
+    department_id: int | None = None,
+    db: Session = Depends(deps.get_db),
+):
+    return crud.professor.search(
+        db, university_id=university_id, department_id=department_id
+    )
