@@ -10,7 +10,7 @@ from src import models, schemas
 class Fund:
     def create(self, db: Session, fund: schemas.FundCreate) -> models.Fund:
         db_record = models.Fund(
-            fundType=fund.fund_type,
+            fund_type=fund.fund_type,
         )
         db.add(db_record)
         db.commit()
@@ -48,14 +48,14 @@ class Fund:
     ) -> List[models.Fund]:
         return (
             db.query(models.Fund)
-            .order_by(models.Fund.fundID)
+            .order_by(models.Fund.fund_id)
             .offset(skip)
             .limit(limit)
             .all()
         )
 
     def get_by_id(self, db: Session, id: int) -> models.Fund | None:
-        return db.query(models.Fund).filter(models.Fund.fundID == id).first()
+        return db.query(models.Fund).filter(models.Fund.fund_id == id).first()
 
 
 fund = Fund()

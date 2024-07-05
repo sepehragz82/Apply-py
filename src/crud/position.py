@@ -10,12 +10,12 @@ from src import models, schemas
 class Position:
     def create(self, db: Session, Position: schemas.PositionCreate) -> models.Position:
         db_record = models.Position(
-            fundID=Position.fund_id,
-            positionOn=Position.position_on,
-            professorID=Position.professor_id,
-            departmentID=Position.department_id,
-            positionTypeID=Position.position_type_id,
-            positionYear=Position.position_year,
+            fund_id=Position.fund_id,
+            position_on=Position.position_on,
+            professor_id=Position.professor_id,
+            department_id=Position.department_id,
+            position_type_id=Position.position_type_id,
+            position_year=Position.position_year,
         )
         db.add(db_record)
         db.commit()
@@ -55,7 +55,7 @@ class Position:
     ) -> List[models.Position]:
         return (
             db.query(models.Position)
-            .order_by(models.Position.positionID)
+            .order_by(models.Position.position_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -63,7 +63,7 @@ class Position:
 
     def get_by_id(self, db: Session, id: int) -> models.Position | None:
         return (
-            db.query(models.Position).filter(models.Position.positionID == id).first()
+            db.query(models.Position).filter(models.Position.position_id == id).first()
         )
 
 

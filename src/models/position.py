@@ -10,15 +10,15 @@ from src.database.session import Base
 class Position(Base):
     __tablename__ = "position"
 
-    positionID: Mapped[int] = mapped_column(primary_key=True)
-    fundID: Mapped[int] = mapped_column(ForeignKey("fund.fundID"))
-    positionOn: Mapped[bool] = mapped_column()
-    professorID: Mapped[int] = mapped_column(ForeignKey("professor.professorID"))
-    departmentID: Mapped[int] = mapped_column(ForeignKey("department.departmentID"))
-    positionTypeID: Mapped[int] = mapped_column(
-        ForeignKey("position_type.positionTypeID")
+    position_id: Mapped[int] = mapped_column(primary_key=True)
+    fund_id: Mapped[int] = mapped_column(ForeignKey("fund.fund_id"))
+    position_on: Mapped[bool] = mapped_column()
+    professor_id: Mapped[int] = mapped_column(ForeignKey("professor.professor_id"))
+    department_id: Mapped[int] = mapped_column(ForeignKey("department.department_id"))
+    position_type_id: Mapped[int] = mapped_column(
+        ForeignKey("position_type.position_type_id")
     )
-    positionYear: Mapped[int] = mapped_column()
+    position_year: Mapped[int] = mapped_column()
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()

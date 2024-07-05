@@ -11,7 +11,7 @@ class PositionType:
     def create(
         self, db: Session, data: schemas.PositionTypeCreate
     ) -> models.PositionType:
-        db_record = models.PositionType(positionType=data.position_type)
+        db_record = models.PositionType(position_type=data.position_type)
         db.add(db_record)
         db.commit()
         db.refresh(db_record)
@@ -50,7 +50,7 @@ class PositionType:
     ) -> List[models.PositionType]:
         return (
             db.query(models.PositionType)
-            .order_by(models.PositionType.positionTypeID)
+            .order_by(models.PositionType.position_type_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -59,7 +59,7 @@ class PositionType:
     def get_by_id(self, db: Session, id: int) -> models.PositionType | None:
         return (
             db.query(models.PositionType)
-            .filter(models.PositionType.positionTypeID == id)
+            .filter(models.PositionType.position_type_id == id)
             .first()
         )
 

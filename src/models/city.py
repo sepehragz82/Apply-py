@@ -10,9 +10,9 @@ from src.database.session import Base
 class City(Base):
     __tablename__ = "city"
 
-    cityID: Mapped[int] = mapped_column(primary_key=True)
-    cityName: Mapped[str] = mapped_column()
-    countryID: Mapped[int] = mapped_column(ForeignKey("country.countryID"))
+    city_id: Mapped[int] = mapped_column(primary_key=True)
+    city_name: Mapped[str] = mapped_column()
+    country_id: Mapped[int] = mapped_column(ForeignKey("country.country_id"))
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()

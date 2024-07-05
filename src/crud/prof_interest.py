@@ -12,7 +12,7 @@ class ProfInterest:
         self, db: Session, ProfInterest: schemas.ProfInterestCreate
     ) -> models.ProfInterest:
         db_record = models.ProfInterest(
-            professorID=ProfInterest.professor_id,
+            professor_id=ProfInterest.professor_id,
             research_interest_id=ProfInterest.research_interest_id,
         )
         db.add(db_record)
@@ -53,7 +53,7 @@ class ProfInterest:
     ) -> List[models.ProfInterest]:
         return (
             db.query(models.ProfInterest)
-            .order_by(models.ProfInterest.profResearchInterestID)
+            .order_by(models.ProfInterest.prof_research_interest_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -62,7 +62,7 @@ class ProfInterest:
     def get_by_id(self, db: Session, id: int) -> models.ProfInterest | None:
         return (
             db.query(models.ProfInterest)
-            .filter(models.ProfInterest.profResearchInterestID == id)
+            .filter(models.ProfInterest.prof_research_interest_id == id)
             .first()
         )
 

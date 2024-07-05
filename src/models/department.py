@@ -10,8 +10,8 @@ from src.database.session import Base
 class Department(Base):
     __tablename__ = "department"
 
-    departmentID: Mapped[int] = mapped_column(primary_key=True)
-    departmentName: Mapped[str] = mapped_column()
+    department_id: Mapped[int] = mapped_column(primary_key=True)
+    department_name: Mapped[str] = mapped_column()
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()

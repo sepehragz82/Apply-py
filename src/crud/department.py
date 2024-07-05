@@ -10,7 +10,7 @@ from src import models, schemas
 class Department:
     def create(self, db: Session, data: schemas.DepartmentCreate) -> models.Department:
         db_record = models.Department(
-            departmentName=data.department_name,
+            department_name=data.department_name,
         )
         db.add(db_record)
         db.commit()
@@ -50,7 +50,7 @@ class Department:
     ) -> List[models.Department]:
         return (
             db.query(models.Department)
-            .order_by(models.Department.departmentID)
+            .order_by(models.Department.department_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -59,7 +59,7 @@ class Department:
     def get_by_id(self, db: Session, id: int) -> models.Department | None:
         return (
             db.query(models.Department)
-            .filter(models.Department.departmentID == id)
+            .filter(models.Department.department_id == id)
             .first()
         )
 

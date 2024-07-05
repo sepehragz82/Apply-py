@@ -10,8 +10,8 @@ from src.database.session import Base
 class ProfInterest(Base):
     __tablename__ = "prof_interest"
 
-    profResearchInterestID: Mapped[int] = mapped_column(primary_key=True)
-    professorID: Mapped[int] = mapped_column(ForeignKey("professor.professorID"))
+    prof_research_interest_id: Mapped[int] = mapped_column(primary_key=True)
+    professor_id: Mapped[int] = mapped_column(ForeignKey("professor.professor_id"))
     research_interest_id: Mapped[int] = mapped_column(
         ForeignKey("research_interest.research_interest_id")
     )

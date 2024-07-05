@@ -12,7 +12,7 @@ class AcademicRank:
         self, db: Session, data: schemas.AcademicRankCreate
     ) -> models.AcademicRank:
         db_record = models.AcademicRank(
-            academicRankTitle=data.academic_rank_title,
+            academic_rank_title=data.academic_rank_title,
         )
         db.add(db_record)
         db.commit()
@@ -52,7 +52,7 @@ class AcademicRank:
     ) -> List[models.AcademicRank]:
         return (
             db.query(models.AcademicRank)
-            .order_by(models.AcademicRank.academicRankID)
+            .order_by(models.AcademicRank.academic_rank_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -61,7 +61,7 @@ class AcademicRank:
     def get_by_id(self, db: Session, id: int) -> models.AcademicRank | None:
         return (
             db.query(models.AcademicRank)
-            .filter(models.AcademicRank.academicRankID == id)
+            .filter(models.AcademicRank.academic_rank_id == id)
             .first()
         )
 

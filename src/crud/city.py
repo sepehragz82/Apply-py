@@ -9,9 +9,7 @@ from src import models, schemas
 
 class City:
     def create(self, db: Session, data: schemas.CityCreate) -> models.City:
-        db_record = models.City(
-            cityName=data.city_name,
-        )
+        db_record = models.City(city_name=data.city_name, country_id=data.country_id)
         db.add(db_record)
         db.commit()
         db.refresh(db_record)
@@ -48,14 +46,14 @@ class City:
     ) -> List[models.City]:
         return (
             db.query(models.City)
-            .order_by(models.City.cityID)
+            .order_by(models.City.city_id)
             .offset(skip)
             .limit(limit)
             .all()
         )
 
     def get_by_id(self, db: Session, id: int) -> models.City | None:
-        return db.query(models.City).filter(models.City.cityID == id).first()
+        return db.query(models.City).filter(models.City.city_id == id).first()
 
 
 city = City()

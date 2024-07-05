@@ -10,23 +10,23 @@ from src.database.session import Base
 class Professor(Base):
     __tablename__ = "professor"
 
-    professorID: Mapped[int] = mapped_column(primary_key=True)
-    professorFName: Mapped[str] = mapped_column()
-    professorMName: Mapped[str] = mapped_column()
-    professorLName: Mapped[str] = mapped_column()
-    profGender: Mapped[bool] = mapped_column(nullable=True)
-    profCodeinUni: Mapped[int] = mapped_column(nullable=True)
-    universityID: Mapped[int] = mapped_column(ForeignKey("university.university_id"))
-    departmentID: Mapped[int] = mapped_column(ForeignKey("department.departmentID"))
+    professor_id: Mapped[int] = mapped_column(primary_key=True)
+    professor_f_name: Mapped[str] = mapped_column()
+    professor_m_name: Mapped[str] = mapped_column()
+    professor_l_name: Mapped[str] = mapped_column()
+    prof_gender: Mapped[bool] = mapped_column(nullable=True)
+    prof_code_in_uni: Mapped[int] = mapped_column(nullable=True)
+    university_id: Mapped[int] = mapped_column(ForeignKey("university.university_id"))
+    department_id: Mapped[int] = mapped_column(ForeignKey("department.department_id"))
     email: Mapped[str] = mapped_column()
-    linkedIN: Mapped[str] = mapped_column(nullable=True)
-    googleScholar: Mapped[str] = mapped_column(nullable=True)
-    h_Index: Mapped[float] = mapped_column()
-    profileUniSite: Mapped[int] = mapped_column(nullable=True)
-    educationDescription: Mapped[str] = mapped_column(nullable=True)
-    extraDescription: Mapped[str] = mapped_column(nullable=True)
-    academicRankID: Mapped[int] = mapped_column(
-        ForeignKey("academic_rank.academicRankID")
+    linkedin: Mapped[str] = mapped_column(nullable=True)
+    google_scholar: Mapped[str] = mapped_column(nullable=True)
+    h_index: Mapped[float] = mapped_column()
+    profile_uni_site: Mapped[int] = mapped_column(nullable=True)
+    education_description: Mapped[str] = mapped_column(nullable=True)
+    extra_description: Mapped[str] = mapped_column(nullable=True)
+    academic_rank_id: Mapped[int] = mapped_column(
+        ForeignKey("academic_rank.academic_rank_id")
     )
 
     created_at: Mapped[datetime] = mapped_column(

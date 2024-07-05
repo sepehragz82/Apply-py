@@ -10,21 +10,21 @@ from src import models, schemas
 class Professor:
     def create(self, db: Session, data: schemas.ProfessorCreate) -> models.Professor:
         db_record = models.Professor(
-            professorFName=data.professor_f_name,
-            professorMName=data.professor_m_name,
-            professorLName=data.professor_l_name,
-            profGender=data.prof_gender,
-            profCodeinUni=data.prof_code_in_uni,
-            universityID=data.university_id,
-            departmentID=data.department_id,
+            professor_f_name=data.professor_f_name,
+            professor_m_name=data.professor_m_name,
+            professor_l_name=data.professor_l_name,
+            prof_gender=data.prof_gender,
+            prof_code_in_uni=data.prof_code_in_uni,
+            university_id=data.university_id,
+            department_id=data.department_id,
             email=data.email,
-            linkedIN=data.linkedin,
-            googleScholar=data.google_scholar,
-            h_Index=data.h_index,
-            profileUniSite=data.profile_uni_site,
-            educationDescription=data.education_description,
-            extraDescription=data.extra_description,
-            academicRankID=data.academic_rank_id,
+            linkedin=data.linkedin,
+            google_scholar=data.google_scholar,
+            h_index=data.h_index,
+            profile_uni_site=data.profile_uni_site,
+            education_description=data.education_description,
+            extra_description=data.extra_description,
+            academic_rank_id=data.academic_rank_id,
         )
         db.add(db_record)
         db.commit()
@@ -64,7 +64,7 @@ class Professor:
     ) -> List[models.Professor]:
         return (
             db.query(models.Professor)
-            .order_by(models.Professor.professorID)
+            .order_by(models.Professor.professor_id)
             .offset(skip)
             .limit(limit)
             .all()
@@ -73,7 +73,7 @@ class Professor:
     def get_by_id(self, db: Session, id: int) -> models.Professor | None:
         return (
             db.query(models.Professor)
-            .filter(models.Professor.professorID == id)
+            .filter(models.Professor.professor_id == id)
             .first()
         )
 

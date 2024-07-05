@@ -9,7 +9,7 @@ from src import models, schemas
 
 class Country:
     def create(self, db: Session, data: schemas.CountryCreate) -> models.Country:
-        db_record = models.Country(countryName=data.country_name)
+        db_record = models.Country(country_name=data.country_name)
         db.add(db_record)
         db.commit()
         db.refresh(db_record)
@@ -48,14 +48,14 @@ class Country:
     ) -> List[models.Country]:
         return (
             db.query(models.Country)
-            .order_by(models.Country.countryID)
+            .order_by(models.Country.country_id)
             .offset(skip)
             .limit(limit)
             .all()
         )
 
     def get_by_id(self, db: Session, id: int) -> models.Country | None:
-        return db.query(models.Country).filter(models.Country.countryID == id).first()
+        return db.query(models.Country).filter(models.Country.country_id == id).first()
 
 
 country = Country()

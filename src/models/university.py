@@ -11,7 +11,7 @@ class University(Base):
     __tablename__ = "university"
 
     university_id: Mapped[int] = mapped_column(primary_key=True)
-    city_id: Mapped[int] = mapped_column(ForeignKey("city.cityID"))
+    city_id: Mapped[int] = mapped_column(ForeignKey("city.city_id"))
     university_name: Mapped[str] = mapped_column()
     internationals_as_ta: Mapped[bool] = mapped_column()
     fall_deadline: Mapped[datetime] = mapped_column()
