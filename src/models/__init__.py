@@ -2,7 +2,6 @@ from .city import City
 from .country import Country
 from .department import Department
 from .fund import Fund
-from .item import Item
 from .position import Position
 from .position_type import PositionType
 from .prof_interest import ProfInterest
