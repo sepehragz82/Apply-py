@@ -19,6 +19,7 @@ pip install mysql-connector-python
 ## 3: Configuration
 
 Edit `.env` file
+Set `DATABASE_URL` field
 
 ## 4: Execution
 
