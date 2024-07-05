@@ -1,0 +1,91 @@
+AcademicRank
+01. Lecturer
+02. Senior Lecturer
+03. Assistant Professor
+04. Associate Professor
+05. Full Professor
+06. Instructor
+07. Teaching Professor
+
+Country
+01. US
+02. Canada
+03. England
+04. Germany
+05. Italy
+06. Australia
+07. Turkey
+08. China
+
+City
+01. North Dakota
+02. California
+03. Texas
+04. Alabama
+05. Minnesota
+06. Emory
+07. Concordia
+08. Arizona
+09. Boston
+10. Troy
+11. Massachusetts
+12. New York
+13. Baltimore
+14. Ithaca
+15. Cambridge
+16. Oxford
+17. Manchester
+18. Birmingham
+19. London
+20. Durtham
+21. Berlin
+22. Munich
+23. Heidelberg
+24. Aachen
+25. Karlsruhe
+26. Montreal
+27. Toronto
+28. British Columbia
+
+Department
+01. Electrical and Computer Engineering
+02. Mechanical Engineering
+03. Civil and Environmental Engineering
+04. Computer Science
+
+University
+01. North Dakota State University
+02. University of California, Irvine
+03. University of Texas at Dallas
+04. University of Alabama at Birmingham, AL
+05. University of Minnesota, Twin Cities, Minneapolis, MN
+06. University of Texas at Austin
+07. Emory University
+08. Concordia University
+09. Arizona State University, Tempe, AZ
+10. Northeastern University, Boston, MA
+11. University of California, Riverside
+12. University of Southern California, LA
+13. Rensselaer Polytechnic Institute, Troy, NY
+14. Massachusetts Institute of Technology
+15. New York University, New York, NY
+16. Johns Hopkins University
+17. Cornell University, Ithaca, NY
+18. Anglia Ruskin University
+19. Cambridge University
+20. Oxford University
+21. Manchester University
+22. Birmingham University
+23. London University
+24. Durtham University
+25. Technical University of Munich
+26. Ludwig Maximilian University of Munich
+27. Free University of Berlin
+28. Technical University Berlin
+29. Karlsruhe Institute of Technology
+30. Humboldt University of Berlin
+31. Heidelberg University
+32. RWTH Aachen University
+33. University of Toronto
+34. University of British Columbia
+35. McGill University
