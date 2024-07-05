@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import DateTime, ForeignKey
+from sqlalchemy import DateTime, ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.sql import func
 
@@ -11,20 +11,20 @@ class Professor(Base):
     __tablename__ = "professor"
 
     professor_id: Mapped[int] = mapped_column(primary_key=True)
-    professor_f_name: Mapped[str] = mapped_column()
-    professor_m_name: Mapped[str] = mapped_column()
-    professor_l_name: Mapped[str] = mapped_column()
+    professor_f_name: Mapped[str] = mapped_column(String(45))
+    professor_m_name: Mapped[str] = mapped_column(String(45))
+    professor_l_name: Mapped[str] = mapped_column(String(45))
     prof_gender: Mapped[bool] = mapped_column(nullable=True)
     prof_code_in_uni: Mapped[int] = mapped_column(nullable=True)
     university_id: Mapped[int] = mapped_column(ForeignKey("university.university_id"))
     department_id: Mapped[int] = mapped_column(ForeignKey("department.department_id"))
-    email: Mapped[str] = mapped_column()
+    email: Mapped[str] = mapped_column(String(45))
     linkedin: Mapped[str] = mapped_column(nullable=True)
     google_scholar: Mapped[str] = mapped_column(nullable=True)
     h_index: Mapped[float] = mapped_column()
     profile_uni_site: Mapped[int] = mapped_column(nullable=True)
-    education_description: Mapped[str] = mapped_column(nullable=True)
-    extra_description: Mapped[str] = mapped_column(nullable=True)
+    education_description: Mapped[str] = mapped_column(String(200), nullable=True)
+    extra_description: Mapped[str] = mapped_column(String(200), nullable=True)
     academic_rank_id: Mapped[int] = mapped_column(
         ForeignKey("academic_rank.academic_rank_id")
     )
