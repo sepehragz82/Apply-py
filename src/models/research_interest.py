@@ -10,8 +10,8 @@ from src.database.session import Base
 class ResearchInterest(Base):
     __tablename__ = "research_interest"
 
-    researchInterestID: Mapped[int] = mapped_column(primary_key=True)
-    researchInterestName: Mapped[str] = mapped_column()
+    research_interest_id: Mapped[int] = mapped_column(primary_key=True)
+    research_interest_name: Mapped[str] = mapped_column()
     description: Mapped[str] = mapped_column()
 
     created_at: Mapped[datetime] = mapped_column(

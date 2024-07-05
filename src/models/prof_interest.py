@@ -12,8 +12,8 @@ class ProfInterest(Base):
 
     profResearchInterestID: Mapped[int] = mapped_column(primary_key=True)
     professorID: Mapped[int] = mapped_column(ForeignKey("professor.professorID"))
-    researchInterestID: Mapped[int] = mapped_column(
-        ForeignKey("research_interest.researchInterestID")
+    research_interest_id: Mapped[int] = mapped_column(
+        ForeignKey("research_interest.research_interest_id")
     )
 
     created_at: Mapped[datetime] = mapped_column(

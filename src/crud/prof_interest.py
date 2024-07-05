@@ -13,7 +13,7 @@ class ProfInterest:
     ) -> models.ProfInterest:
         db_record = models.ProfInterest(
             professorID=ProfInterest.professor_id,
-            researchInterestID=ProfInterest.research_interest_id,
+            research_interest_id=ProfInterest.research_interest_id,
         )
         db.add(db_record)
         db.commit()
