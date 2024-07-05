@@ -30,7 +30,7 @@ Set `DATABASE_URL` to `"mysql+mysqlconnector://root:password@localhost/apply"`
 
 `password` is your mysql root password.
 
-Also, you should create a database (schema) and name it `apply`.
+Also, you should create a database (schema) and name it `apply` in your mysql.
 
 ## 4: Execution
 
