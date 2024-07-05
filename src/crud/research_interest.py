@@ -7,14 +7,13 @@ from sqlalchemy.sql import func
 from src import models, schemas
 
 
-class University:
-    def create(self, db: Session, data: schemas.UniversityCreate) -> models.University:
-        db_record = models.University(
-            universityName=data.university_name,
-            cityID=data.city_id,
-            internationalsAsTA=data.internationals_as_ta,
-            fallDeadline=data.fall_deadline,
-            winterDeadline=data.winter_deadline,
+class ResearchInterest:
+    def create(
+        self, db: Session, data: schemas.ResearchInterestCreate
+    ) -> models.ResearchInterest:
+        db_record = models.ResearchInterest(
+            researchInterestName=data.research_interest_name,
+            description=data.description,
         )
         db.add(db_record)
         db.commit()
@@ -22,8 +21,8 @@ class University:
         return db_record
 
     def update(
-        self, db: Session, id: int, data: schemas.UniversityUpdate
-    ) -> models.University:
+        self, db: Session, id: int, data: schemas.ResearchInterestUpdate
+    ) -> models.ResearchInterest:
         db_record = self.get_by_id(db, id)
 
         if db_record is None:
@@ -39,7 +38,7 @@ class University:
         db.refresh(db_record)
         return db_record
 
-    def delete(self, db: Session, id: int) -> models.University:
+    def delete(self, db: Session, id: int) -> models.ResearchInterest:
         db_record = self.get_by_id(db, id=id)
 
         if db_record is None:
@@ -51,21 +50,21 @@ class University:
 
     def get_all(
         self, db: Session, skip: int = 0, limit: int = 100
-    ) -> List[models.University]:
+    ) -> List[models.ResearchInterest]:
         return (
-            db.query(models.University)
-            .order_by(models.University.universityID)
+            db.query(models.ResearchInterest)
+            .order_by(models.ResearchInterest.researchInterestID)
             .offset(skip)
             .limit(limit)
             .all()
         )
 
-    def get_by_id(self, db: Session, id: int) -> models.University | None:
+    def get_by_id(self, db: Session, id: int) -> models.ResearchInterest | None:
         return (
-            db.query(models.University)
-            .filter(models.University.universityID == id)
+            db.query(models.ResearchInterest)
+            .filter(models.ResearchInterest.researchInterestID == id)
             .first()
         )
 
 
-university = University()
+researchInterest = ResearchInterest()

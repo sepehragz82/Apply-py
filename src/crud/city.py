@@ -1,46 +1,51 @@
+from typing import List
+
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
 
 from src import models, schemas
-from src.core.security import get_password_hash, verify_password
 
 
-class CityService:
-    def create(self, db: Session, city: schemas.CityCreate) -> models.City:
-        db_city = models.City(
-            cityName=city.cityName,
+class City:
+    def create(self, db: Session, data: schemas.CityCreate) -> models.City:
+        db_record = models.City(
+            cityName=data.city_name,
         )
-        db.add(db_city)
+        db.add(db_record)
         db.commit()
-        db.refresh(db_city)
-        return db_city
+        db.refresh(db_record)
+        return db_record
 
-    def update(
-        self, db: Session, cityName: str, city_update: schemas.CityUpdate
-    ) -> models.City:
-        db_city = self.get_city_by_cityName(db, cityName=cityName)
+    def update(self, db: Session, id: int, data: schemas.CityUpdate) -> models.City:
+        db_record = self.get_by_id(db, id)
 
-        update_data = city_update.dict(exclude_unset=True)
+        if db_record is None:
+            raise HTTPException(status_code=404, detail="Record not found")
+
+        update_data = data.model_dump(exclude_unset=True)
         update_data["modified_at"] = func.now()
 
         for field, value in update_data.items():
-            setattr(db_city, field, value)
+            setattr(db_record, field, value)
 
         db.commit()
-        db.refresh(db_city)
-        return db_city
+        db.refresh(db_record)
+        return db_record
 
-    def delete(self, db: Session, cityName: str):
-        db_city = self.get_city_by_cityName(db, cityName=cityName)
-        db.delete(db_city)
+    def delete(self, db: Session, id: int) -> models.City:
+        db_record = self.get_by_id(db, id)
+
+        if db_record is None:
+            raise HTTPException(status_code=404, detail="Record not found")
+
+        db.delete(db_record)
         db.commit()
+        return db_record
 
-    def get_all_cities_count(self, db: Session) -> int:
-        return db.query(models.City).count()
-
-    def get_all_users(
+    def get_all(
         self, db: Session, skip: int = 0, limit: int = 100
-    ) -> list[models.City]:
+    ) -> List[models.City]:
         return (
             db.query(models.City)
             .order_by(models.City.cityID)
@@ -49,10 +54,8 @@ class CityService:
             .all()
         )
 
-    def get_city_by_cityID(self, db: Session, id: int) -> models.City | None:
+    def get_by_id(self, db: Session, id: int) -> models.City | None:
         return db.query(models.City).filter(models.City.cityID == id).first()
 
-    def get_city_by_cityName(self, db: Session, cityName: str) -> models.User | None:
-        return db.query(models.City).filter(models.City.cityName == cityName).first()
 
-CityService = CityService()
+city = City()

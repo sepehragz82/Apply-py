@@ -60,7 +60,7 @@ def update_user(
     ):
         raise HTTPException(status_code=400, detail="Username already registered")
 
-    return crud.user.update(db, username=current_user.username, user_update=user_update)
+    return crud.user.update(db, username=current_user.username, data=user_update)
 
 
 @router.delete("/{username}")

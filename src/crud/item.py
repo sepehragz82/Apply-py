@@ -1,6 +1,8 @@
 from typing import List, Optional
 
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
+from sqlalchemy.sql import func
 
 from src import models, schemas
 

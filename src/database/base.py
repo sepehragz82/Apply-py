@@ -1,4 +1,5 @@
 from src.database.session import Base
+from src.models.academic_rank import AcademicRank
 from src.models.city import City
 from src.models.country import Country
 from src.models.department import Department

@@ -1,3 +1,6 @@
+from typing import List
+
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy.sql import func
 
@@ -6,51 +9,61 @@ from src import models, schemas
 
 class AcademicRank:
     def create(
-        self, db: Session, academic_rank: schemas.AcademicRankCreate
+        self, db: Session, data: schemas.AcademicRankCreate
     ) -> models.AcademicRank:
-        db_academic_rank = models.AcademicRank(
-            academicRankTitle=academic_rank.academic_rank_title,
+        db_record = models.AcademicRank(
+            academicRankTitle=data.academic_rank_title,
         )
-        db.add(db_academic_rank)
+        db.add(db_record)
         db.commit()
-        db.refresh(db_academic_rank)
-        return db_academic_rank
+        db.refresh(db_record)
+        return db_record
 
     def update(
-        self, db: Session, id: str, academic_rank: schemas.AcademicRankUpdate
+        self, db: Session, id: int, data: schemas.AcademicRankUpdate
     ) -> models.AcademicRank:
-        db_academic_rank = self.get_by_id(db, id)
+        db_record = self.get_by_id(db, id)
 
-        update_data = academic_rank.dict(exclude_unset=True)
+        if db_record is None:
+            raise HTTPException(status_code=404, detail="Record not found")
+
+        update_data = data.model_dump(exclude_unset=True)
         update_data["modified_at"] = func.now()
 
         for field, value in update_data.items():
-            setattr(db_academic_rank, field, value)
+            setattr(db_record, field, value)
 
         db.commit()
-        db.refresh(db_academic_rank)
-        return db_academic_rank
+        db.refresh(db_record)
+        return db_record
 
-    def delete(self, db: Session, id: int):
-        db_academic_rank = self.get_by_id(db, id)
-        db.delete(db_academic_rank)
+    def delete(self, db: Session, id: int) -> models.AcademicRank:
+        db_record = self.get_by_id(db, id=id)
+
+        if db_record is None:
+            raise HTTPException(status_code=404, detail="Record not found")
+
+        db.delete(db_record)
         db.commit()
+        return db_record
 
     def get_all(
         self, db: Session, skip: int = 0, limit: int = 100
-    ) -> list[models.AcademicRank]:
+    ) -> List[models.AcademicRank]:
         return (
             db.query(models.AcademicRank)
-            .order_by(models.AcademicRank.id)
+            .order_by(models.AcademicRank.academicRankID)
             .offset(skip)
             .limit(limit)
             .all()
         )
 
-    def get_by_id(self, db: Session, id: id) -> models.AcademicRank | None:
+    def get_by_id(self, db: Session, id: int) -> models.AcademicRank | None:
         return (
-            db.query(models.AcademicRank).filter(models.AcademicRank.id == id).first()
+            db.query(models.AcademicRank)
+            .filter(models.AcademicRank.academicRankID == id)
+            .first()
         )
 
 
-user = AcademicRank()
+academicRank = AcademicRank()

@@ -1,3 +1,4 @@
+from .academic_rank import AcademicRank
 from .city import City
 from .country import Country
 from .department import Department
