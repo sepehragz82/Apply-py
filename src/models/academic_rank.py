@@ -13,9 +13,9 @@ class AcademicRank(Base):
     academicRankID: Mapped[int] = mapped_column(primary_key=True)
     academicRankTitle: Mapped[str] = mapped_column()
 
-    createdAt: Mapped[datetime] = mapped_column(
+    created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
-    modifiedAt: Mapped[datetime] = mapped_column(
+    modified_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )

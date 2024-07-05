@@ -14,9 +14,9 @@ class City(Base):
     cityName: Mapped[str] = mapped_column()
     countryID: Mapped[int] = mapped_column(ForeignKey("country.countryID"))
 
-    createdAt: Mapped[datetime] = mapped_column(
+    created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
-    modifiedAt: Mapped[datetime] = mapped_column(
+    modified_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
     )
