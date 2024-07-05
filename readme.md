@@ -18,15 +18,13 @@ pip install mysql-connector-python
 
 ## 3: Configuration
 
-Edit `.env` file
-
 ### For sqlite
 
-Set `DATABASE_URL` to `"sqlite:///./apply.db"`
+Set `DATABASE_URL` to `"sqlite:///./apply.db"` in `.env` file
 
 ### For mysql
 
-Set `DATABASE_URL` to `"mysql+mysqlconnector://root:password@localhost/apply"`
+Set `DATABASE_URL` to `"mysql+mysqlconnector://root:password@localhost/apply"` in `.env` file
 
 `password` is your mysql root password.
 
