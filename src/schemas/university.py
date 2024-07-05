@@ -20,7 +20,9 @@ class UniversityUpdate(BaseUniversity):
 
 
 class University(BaseUniversity):
-    pass
+    university_id: int
+    created_at: datetime
+    modified_at: datetime
 
     class Config:
         orm_mode = True

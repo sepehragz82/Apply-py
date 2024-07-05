@@ -1,5 +1,8 @@
-from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String, Text
-from sqlalchemy.orm import relationship
+from datetime import datetime
+
+from sqlalchemy import DateTime, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.sql import func
 
 from src.database.session import Base
 
@@ -7,10 +10,16 @@ from src.database.session import Base
 class University(Base):
     __tablename__ = "university"
 
-    universityID = Column(Integer, primary_key=True)
-    universityName = Column(String)
-    internationalsAsTA = Column(Boolean)
-    fallDeadline = Column(DateTime)
-    winterDeadline = Column(DateTime)
+    universityID: Mapped[int] = mapped_column(primary_key=True)
+    cityID: Mapped[int] = mapped_column(ForeignKey("city.id"))
+    universityName: Mapped[str] = mapped_column()
+    internationalsAsTA: Mapped[bool] = mapped_column()
+    fallDeadline: Mapped[datetime] = mapped_column()
+    winterDeadline: Mapped[datetime] = mapped_column()
 
-    cityID = relationship("university", back_populates="city")
+    createdAt: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
+    modifiedAt: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now()
+    )
