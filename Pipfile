@@ -13,6 +13,7 @@ sqlalchemy = "*"
 alembic = "*"
 psycopg2 = "*"
 pydantic-settings = "*"
+mysql-connector-python = "*"
 
 [dev-packages]
 autopep8 = "*"
