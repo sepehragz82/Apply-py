@@ -9,7 +9,6 @@ from src.database.session import Base, SessionLocal, engine
 
 Base.metadata.create_all(bind=engine)
 
-
 app = FastAPI(
     title=settings.PROJECT_NAME, openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
