@@ -13,7 +13,7 @@ pip install sqlalchemy
 pip install passlib[bcrypt]
 pip install python-jose[cryptography]
 pip install pydantic-settings
-pip install mysql-connector-pytho
+pip install mysql-connector-python
 ```
 
 ## Configuration
