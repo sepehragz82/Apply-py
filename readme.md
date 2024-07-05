@@ -1,11 +1,11 @@
 # Apply-py
 
-## Requirements
+1. ## Requirements
 
 - Python
 - Pip
 
-## Installation
+1. ## Installation
 
 ```bash
 pip install fastapi
@@ -16,11 +16,11 @@ pip install pydantic-settings
 pip install mysql-connector-python
 ```
 
-## Configuration
+1. ## Configuration
 
 Edit `.env` file
 
-## Execution
+1. ## Execution
 
 ```bash
 uvicorn src.main:app
