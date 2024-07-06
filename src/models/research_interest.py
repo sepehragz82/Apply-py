@@ -11,7 +11,7 @@ class ResearchInterest(Base):
     __tablename__ = "research_interest"
 
     research_interest_id: Mapped[int] = mapped_column(primary_key=True)
-    research_interest_name: Mapped[str] = mapped_column(String(45))
+    research_interest_name: Mapped[str] = mapped_column(String(200))
     description: Mapped[str] = mapped_column(String(200))
 
     created_at: Mapped[datetime] = mapped_column(

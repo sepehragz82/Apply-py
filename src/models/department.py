@@ -11,7 +11,7 @@ class Department(Base):
     __tablename__ = "department"
 
     department_id: Mapped[int] = mapped_column(primary_key=True)
-    department_name: Mapped[str] = mapped_column(String(45))
+    department_name: Mapped[str] = mapped_column(String(200))
 
     created_at: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), server_default=func.now()
