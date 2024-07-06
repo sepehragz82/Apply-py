@@ -8,6 +8,13 @@
 ## 2: Installation
 
 ```bash
+pip install -r requirements.txt
+
+```
+
+or:
+
+```bash
 pip install fastapi
 pip install sqlalchemy
 pip install passlib[bcrypt]
